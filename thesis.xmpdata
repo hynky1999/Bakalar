@@ -1,7 +1,8 @@
 % Metadata to be stored in PDF, see documentation of the pdfx package for more details.
 
-\Author{Name Surname}
-\Title{Thesis title}
+\Author{Hynek Kydlíček}
+\Title{Implicit information extraction from news stories}
 \Keywords{keywords\sep more such\sep yet another}
 \Subject{Abstract of thesis}
 \Publisher{Charles University}
+
