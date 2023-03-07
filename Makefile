@@ -1,7 +1,8 @@
 NAME=thesis
 ABSTRACT=abstract
 LATEXMKOPTS=#-pdf #enable for forcing pdflatex
-LATEXMK=latexmk $(LATEXMKOPTS)
+LATEXMK=pdflatex $(LATEXMKOPTS)
+
 
 all:
 	$(LATEXMK) $(NAME)
@@ -9,4 +10,4 @@ all:
 	$(LATEXMK) $(ABSTRACT)-en
 
 clean:
-	$(LATEXMK) -C
+	latexmk -C
