@@ -48,9 +48,10 @@
 \usepackage{floatrow}
 
 % load bibliography tools
-\usepackage[backend=bibtex,natbib,style=numeric,sorting=none]{biblatex}
+% \usepackage[backend=bibtex,natbib,style=numeric,sorting=none]{biblatex}
 % alternative with alphanumeric citations (more informative than numbers):
-%\usepackage[backend=bibtex,natbib,style=alphabetic]{biblatex}
+% \usepackage[backend=bibtex,natbib,style=alphabetic]{biblatex}
+\usepackage[]{biblatex}
 %
 % alternatives that conform to iso690
 % (iso690 is not formally required on MFF, but may help elsewhere):
@@ -81,7 +82,7 @@
 %\DeclareNameAlias{default}{family-given}
 
 % load the file with bibliography entries
-\addbibresource{refs}
+\addbibresource{refs.bib}
 
 % remove this if you won't use fancy verbatim environments
 \usepackage{fancyvrb}
@@ -114,16 +115,10 @@
 
 \tableofcontents
 
-\include{intro}
 \include{dataset}
-\include{ch1}
-\include{ch2}
-\include{ch3}
-\include{conclusion}
 \include{bibliography}
 
 \appendix
-\include{howto}
 
 % if your attachments are complicated, describe them in a separate appendix
 %\include{attachments}

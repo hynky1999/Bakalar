@@ -25,7 +25,7 @@ The closes to our requirements we found were:
 
         While it contains both category and author metadata,
         the language is English, and the dataset doesn't have the content of the articles.
-end{itemize}
+\end{itemize}
 
 As neither dataset suited our needs, we created our dataset.
 
@@ -256,7 +256,7 @@ We used the following postprocessing steps for content, brief, and headline:
     \item Convert named and numeric character references to Unicode,
     e.g., '\&\#x2013'; to \textendash.
     \item Normalize Unicode characters to their base combined form.
-\end{enumereate}
+\end{enumerate}
 As for Brief and Headline, we capitalized the first letter
 and added a dot at the end if there wasn't one.
 
@@ -274,18 +274,18 @@ The ratio between the sets is $85:7.5:7.5$.
 % (see the \floatsetup[table] comments in `macros.tex`.
 %\floatbox{table}[\FBwidth]{
 \centering\footnotesize\sf
-\begin{tabular}{llrl}
+\begin{tabular}{llllll}
 \toprule
 Server & Size & Unique Authors & Categories & Date Range & Article words \\
-Seznamzpravy.cz & 65472 & 382 & 11 & 14.9.2016 - 6.8.2022 & 443
-Denik.cz & 664133 & 2497 & 18 & 27.3.2007 - 6.8.2022  & 332 
-Idnes.cz & 295840 & 4385 & 21 & 3.1.2000 - 9.8.2022 & 423
-Irozhlas.cz & 167588 & 1900 & 8 & 8.7.2000 - 25.6.2022 & 287
-Aktualne.cz & 112960 & 633 & 19 & 26.10.2005 - 6.8.2022 & 468
-Novinky.cz & 321417 & 2518 & 17 & 20.12.2002 - 6.8.2022 & 274
 \midrule
-Cumulative & 1627410 & 10930 & 25 & 3.1.2000 - 9.8.2022 & 362 \\
-\bottomrule
+Seznamzpravy.cz & 65472 & 382 & 11 & 14.9.2016 - 6.8.2022 & 443 \\
+Denik.cz & 664133 & 2497 & 18 & 27.3.2007 - 6.8.2022  & 332 \\
+Idnes.cz & 295840 & 4385 & 21 & 3.1.2000 - 9.8.2022 & 423 \\
+Irozhlas.cz & 167588 & 1900 & 8 & 8.7.2000 - 25.6.2022 & 287 \\
+Aktualne.cz & 112960 & 633 & 19 & 26.10.2005 - 6.8.2022 & 468 \\
+Novinky.cz & 321417 & 2518 & 17 & 20.12.2002 - 6.8.2022 & 274 \\
+\addlinespace % a nice non-intrusive separator of data groups (or final table sums)
+Cumulative & 1627410 & 10930 & 25 & 3.1.2000 - 9.8.2022 & 362
 \end{tabular}
 \end{table}
 
