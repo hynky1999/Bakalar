@@ -1,16 +1,76 @@
 
 \chapwithtoc{Introduction}
+Every day there are millions of articles published on the internet. Various authors write those
+with different backgrounds and opinions. Their goal is, however, the same: to convey the information to the reader.
+While the information is usually explicit, that is, it is written in the article, there are some cases when it is implicit, that is,
+it is not written in the article but can be inferred from it. Such implicit information 
+is usually intentionally used to shape the reader's opinion. However, it's also possible
+that the author inserts such implicit information unintentionally. It could
+be the result of the author's background or state of the world at the time of writing.
+The author's texts might be more pessimistic at the start of the week while more optimistic before the weekend.
+It might also be possible that women write articles slightly differently than men do.
+We thus asked ourselves the following question:
+\begin{quote}
+    \textit{Which and how much implicit information can be extracted from the news articles?}
+\end{quote}
 
-Introduction should answer the following questions, ideally in this order:
+As there could be an infinite amount of such fingerprints, we decided to narrow the scope of our research.
+We will only be interested in these four implicit pieces of information:
 \begin{enumerate}
-\item What is the nature of the problem the thesis is addressing?
-\item What is the common approach for solving that problem now?
-\item How this thesis approaches the problem?
-\item What are the results? Did something improve?
-\item What can the reader expect in the individual chapters of the thesis?
+    \item The category of the article
+    \item Author's gender
+    \item Day of week when the article was published
+    \item News server where the article was published
 \end{enumerate}
+We also had to narrow the domain of our research to news articles in Czech.
 
-Expected length of the introduction is between 1--4 pages. Longer introductions may require sub-sectioning with appropriate headings --- use \texttt{\textbackslash{}section*} to avoid numbering (with section names like `Motivation' and `Related work'), but try to avoid lengthy discussion of anything specific. Any ``real science'' (definitions, theorems, methods, data) should go into other chapters.
-\todo{You may notice that this paragraph briefly shows different ``types'' of `quotes' in TeX, and the usage difference between a hyphen (-), en-dash (--) and em-dash (---).}
 
-It is very advisable to skim through a book about scientific English writing before starting the thesis. I can recommend `\citetitle{glasman2010science}' by \citet{glasman2010science}.
+\subsection*{Related Work}
+With the rise of Natural Language Processing (NLP) and Machine Learning (ML)
+there has been a lot of research on implicit information in textual content.
+In particular, sentiment analysis and text classification have been researched by many.
+Most notably, \cite{joulinBagTricksEfficient2016} showed that a simple bag of words approach
+with a few hidden layers could achieve state-of-the-art (SOTA) results while being very fast and straightforward.
+\cite{zhangTextUnderstandingScratch2016} inspired by the usage of convolutional neural networks in image classification,
+proposed a similar approach for text classification with excellent results.
+In recent years, state-of-the-art has been achieved by the transformer models \cite{vaswaniAttentionAllYou2017d}.
+\todo{I Guess there should be a mention of RNNs and LSTM so that I can explain later why transformer is better}.
+Such an approach was used in \cite{devlinBERTPretrainingDeep2019a} where the authors achieved SOTA results on
+all the tasks of GLUE benchmark \cite{wangGLUEMultiTaskBenchmark2019}, which among others, includes 
+sentiment analysis task. Inspired by these results \cite{adhikariDocBERTBERTDocument2019} used a similar approach for
+document-level sentiment analysis, again achieving SOTA results.
+
+\subsection*{Our approach}
+To our knowledge, no existing dataset would contain all the information we are interested in.
+Therefore we had to create one. We made one of the most extensive datasets of Czech news articles.
+With more than 1.5 million articles, it is on par with \cite{sidoCzertCzechBERTlike2021} and \cite{zemanCzechNewsClassification2021},
+while containing more metadata about the articles. We will describe the dataset in detail in the next chapter.
+
+
+To have a baseline model to compare our results to, we decided to use a simple bag of words approach with logistic regression.
+
+For more complex models, we wanted to use the most recent and state-of-the-art models.
+We decided to use the transformers \cite{vaswaniAttentionAllYou2017d} for our research.
+We fine-tuned a pre-trained transformer model using different techniques.
+
+Besides the transformers, we also used GPT-3 model \cite{brownLanguageModelsAre2020b},
+as we were interested in its few-shot learning capabilities.
+
+\subsection*{Structure of the thesis}
+We will start with description of the dataset we created.
+We will then describe and explain the needed knowledge for the reader to understand
+the models we will use in our experiments.
+
+In the next chapter, we will describe the evolution of NLP models so that the reader
+can understand why we chose the models we did. 
+
+After that, we describe the models and how we trained them for each task.
+Precisely we will describe the following models:
+\begin{enumerate}
+    \item Linear regression with a bag of words 
+    \item Fine-tuned transformer model with default parameters
+    \item Fine-tuned transformer model with ULMFiT \cite{howardUniversalLanguageModel2018a}
+    \item Fine-tune GPT-3 model \cite{brownLanguageModelsAre2020b}
+\end{enumerate}
+We will then evaluate the results and compare them to the baseline model.
+Lastly, we will discuss the results and possible future work and improvements.
