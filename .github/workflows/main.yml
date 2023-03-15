@@ -17,7 +17,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the thesis
-        run: latexmk thesis && latexmk abstract-cz && latexmk abstract-en
+        run: pdflatex thesis && pdflatex abstract-cz && pdflatex abstract-en
       - name: Upload artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -36,14 +36,4 @@ jobs:
         uses: actions/download-artifact@v3
       - name: Run VeraPDF
         run: verify Thesis/*.pdf | tee /dev/stderr | grep -qE 'nonCompliant="0"'
-  relase:
-    name: upload PDFs
-    runs-on: ubuntu-latest
-    needs: verify
-    steps:
-      - name: Get PDFs
-        uses: actions/download-artifact@v3
-      - name: Upload PDFs
-        uses: actions/rele
-
 
