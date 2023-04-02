@@ -1,11 +1,11 @@
 \chapter{Experiments}
 \label{chap:experiments}
-To evaluate the research question we have conducted in total 9 experiments for every task.
+To evaluate the research question we have conducted in total 11 experiments for every task.
 We categorize experiments into 4 groups: Human performance, Baseline, Backbone models and Fine-tuning methods.
 
 \section{Human performance}
 \label{sec:human}
-To evaluate human performance, we let 5 evaluators classify the articles on Test-human set (see \autoref{enum:test-human}).
+To evaluate human performance, we let 5 evaluators classify the articles on the Test-human set (see \autoref{enum:test-human}).
 
 \section{Baseline}
 For a baseline, we have used Multi-class Logistic Regression with TF-IDF features.
@@ -15,8 +15,9 @@ TF-IDF features setting was:
     \item Maximum document frequency: 1\%
     \item Ngrams: 1-2
     \item Minimum document frequency: 90 documents
+    \item Stop words: Czech stop words from stop-words package\footnote{https://pypi.org/project/stop-words/}
 \end{enumerate}
-Similar to \cite{strakaSumeCzechLargeCzech2018a} we have added following additional features:
+Similar to \cite{strakaSumeCzechLargeCzech2018a} we have added the following additional features:
 \begin{enumerate}
     \item Number of words
     \item Number of words with only non-alphabetic characters
@@ -72,8 +73,15 @@ We have used the following hyperparameters:
     \item Truncation: First 512 tokens
     \item Unfrozen Embeddings: False
 \end{enumerate}
-To find the learning rate (lr), we run a grid search for each model and task with following values: $3e-5, 4.5e-5, 7.5e-5$.
-Grid search only run for 0.4 epoch and lr with the best validation f1-macro score was selected.
+To find the learning rate (lr), we run a grid search for each model and task.
+However, we quickly found out that the Fernet-News was more sensitive to the high lr and thus we couldn't apply the same lrs for both models.
+For RobeCzech, we have used the following lrs:
+\begin{enumerate}
+    \item RobeCzech: $3e-5, 4.5e-5, 7.5e-5$
+    \item Fernet-News: $1e-5, 2e-5, 3e-5$
+\end{enumerate}
+
+Grid search only run for 0.4 portion of the first epoch and lr with the best validation f1-macro score was selected.
 For implementation, we have used \textit{Pytorch Lightning 2.0}, \textit{Huggingface Transformers 4.24} and \textit{Pytorch 2.0.0}.
 The training was done on Ufal AIC cluster\footnote{https://aic.ufal.mff.cuni.cz/} on a single GeForce RTX 2080 Ti.
 
@@ -103,13 +111,14 @@ For comparison, we also additionally fine-tuned and evaluated the above models o
 We were interested in ways to improve the performance of finetuning without changing the backbone model.
 We tried 3 approaches mainly inspired by \cite{howardUniversalLanguageModel2018a} and \cite{sunHowFineTuneBERT2020}.
 Note that \textbf{ULMFiT} is RNN architecture and thus its findings might not apply to transformers.
-All the experiments were done on \textbf{RobeCzech} model.
+All the experiments were done on \textbf{RobeCzech} model, with settings as in \autoref{sec:robe-czech}
+unless stated otherwise.
 
 \subsection{Truncation}
 \label{sec:truncation}
 The base models are trained with truncation of the first 512 tokens as it was shown
-the most effective by \cite{sunHowFineTuneBERT2020}. Due to the nature of task,
-we hypothesized that the last part might contain more relevant information as:
+the most effective by \cite{sunHowFineTuneBERT2020}. Due to the nature of the task,
+we hypothesized that the last part might contain more relevant information:
 \begin{quotation}
     Pro Idnes.cz Jana Křížová
 \end{quotation}
@@ -118,8 +127,23 @@ We thus tried to truncate the text by taking the last
 
 \subsection{Task modeling}
 \label{sec:task-modeling}
-Both \cite{howardUniversalLanguageModel2018a} and \cite{sunHowFineTuneBERT2020} found that further LM modeling on
-task dataset can improve the performance. We thus tried to use the same approach on our dataset.
+Both \cite{howardUniversalLanguageModel2018a} and \cite{sunHowFineTuneBERT2020}
+found that further LM modeling on task dataset can improve performance.
+We thus tried to use the same approach on our dataset.
+
+For training LM we have used the following hyperparameters:
+\begin{enumerate}
+    \item Effective Batch size: 198
+    \item Number of epochs: 10
+    \item Sequence length: 512 tokens
+    \item Sequence sampling: Cross document
+    \item Masking: 15\% token change (80\% random, 10\% replace, 10\% keep)
+    \item Optimizer: AdamW with epsilon 1e-8, beta1 0.9, beta2 0.98
+    \item Unfrozen Embeddings: True
+\end{enumerate}
+
+
+
 
 \subsection{Gradual unfreezing with discriminative learning rates}
 \label{sec:gradual-unfreezing}
@@ -129,13 +153,19 @@ The discriminative learning rate is a technique where the learning rate is diffe
 We set the discriminative factor to $0.95$ as in \cite{sunHowFineTuneBERT2020}.
 The gradual unfreezing is not well described in ULMFiT, thus we tried two approaches:
 \begin{enumerate}
-    \item GradDLR-12 Unfreeze 1 layer per epoch, starting from the last layer, and run for 12 epochs.
-    \item GradDLR-24 Unfreeze 1 layer per epoch, starting from the last layer, and run for 24 epochs(12 epochs in the full unfrozen state).
+    \item \textbf{GradDLR-12} Unfreeze 1 layer per epoch, starting from the last layer, and run for 12 epochs.
+    \item \textbf{GradDLR-24} Unfreeze 1 layer per epoch,
+    starting from the last layer, and run for 24 epochs(12 epochs in the full unfrozen state).
 \end{enumerate}
 The epoch lengths are adjusted, so that the total number of optimizer steps stays the same (full 2 epochs).
 
 For both approaches, we unfreeze the classifier layer at epoch 0 with lr decaying from $1e-3$ to $ 5e-5$.
-The first unfrozen layer has lr peak at $3e-5$. The remaining layers are adjusted based on the discriminative learning rate.
-Each unfrozen layer has its scheduler with the same setting as base model tuning (\autoref{sec:backbone}). However, it start scheduling when the layer was
-unfrozen.
+The first unfrozen layer has lr peak at best lr found at \autoref{sec:robe-czech} for given task.
+The remaining layers are adjusted based on the discriminative learning rate.
+Each unfrozen layer has its scheduler with the same setting as base model tuning (\autoref{sec:backbone}).
+ However, it start scheduling when the layer was unfrozen.
 The reaming setting stays the same as in base model tuning (\autoref{sec:backbone}).
+
+\section{Final Model}
+\label{sec:final-model}
+Finally, we created a model that combines the best back-bone and the best finetuning approach.
