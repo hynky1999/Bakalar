@@ -93,7 +93,12 @@ As the model architecture is not modifiable, the finetuning works
 as text generation fine-tuning.
 Thus we only provide query: Text of article and text completion: Class.
 To save the cost we fine-tuned in a multi-task setting.
-Thus for every task, we created a label in the format: \textit{Full Server Name} \textit{Category} \textit{Gender} \textit{Day of week}.
+Thus for every task, we created a label in the format: \textit{Full\ Server Name} \textit{Category} \textit{Gender} \textit{Day of week}.
+
+Example of the label:
+\begin{quotation}
+    \textit{Idnes.cz Sport Muž Pondělí}
+\end{quotation}
 
 The Ada model takes a maximum of 2048 tokens, we thus truncated documents to 1400 characters.
 To save the costs we used Train-small (see \autoref{enum:train-small}) for finetuning and
