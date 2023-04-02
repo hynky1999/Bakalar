@@ -47,6 +47,8 @@
 \usepackage{caption}
 \usepackage{floatrow}
 
+% for enum ref
+\usepackage{enumitem}
 % load bibliography tools
 \usepackage[backend=bibtex,natbib,style=numeric,sorting=none]{biblatex}
 % alternative with alphanumeric citations (more informative than numbers):
@@ -89,7 +91,7 @@
 
 % remove this if you won't typeset TikZ graphics
 \usepackage{tikz}
-\usetikzlibrary{positioning} %add libraries as needed (shapes, decorations, ...)
+\usetikzlibrary{positioning, shapes.multipart} %add libraries as needed (shapes, decorations, ...)
 
 % remove this if you won't typeset any pseudocode
 \usepackage{algpseudocode}
@@ -116,11 +118,9 @@
 \tableofcontents
 
 \include{intro}
+\include{text_classification}
 \include{dataset}
-\include{ch1}
-\include{ch2}
-\include{ch3}
-\include{ch4}
+\include{experiments}
 \include{bibliography}
 
 \appendix
