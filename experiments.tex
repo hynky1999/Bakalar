@@ -35,7 +35,7 @@ We selected the best model based on the f1-macro score on the validation set.
 As for the solver, we have used SAGA (\cite{defazioSAGAFastIncremental2014})
  implementation from Scikit-learn library\footnote{https://scikit-learn.org}.
 with max iterations set to 800 and early stopping tolerance set to 0.001.
-With this setting, we created 2 models; \textbf{LR-BASE-40} with 40k features
+With this setting, we created 2 models; \textbf{LR-BASE-50} with 40k tfidf features
  and \textbf{LR-BASE-200} with 200k features.
 
 \section{Backbone models}
@@ -163,4 +163,4 @@ The reaming setting stays the same as in base model tuning (\autoref{sec:backbon
 
 \section{Final Model}
 \label{sec:final-model}
-Finally, we created a model that combines the best back-bone and the best finetuning approach.
+Finally, we created a model that combines the best backbone and the best finetuning approach.
