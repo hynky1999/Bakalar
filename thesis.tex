@@ -9,6 +9,11 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
+% Declare unsuported unicode mapping
+\DeclareUnicodeCharacter{301C}{\textasciitilde}
+\DeclareUnicodeCharacter{25A0}{$\blacksquare$}
+\DeclareUnicodeCharacter{00AD}{-}
+
 % See https://en.wikipedia.org/wiki/Canons_of_page_construction before
 % modifying the size of printable area. LaTeX defaults are great.
 % If you feel it would help anything, you can enlarge the printable area a bit:
@@ -38,9 +43,13 @@
 % font family).
 
 
+% figures
+\usepackage{subfig}
+
+
 % some useful packages
 \usepackage{microtype}
-\usepackage{amsmath,amsfonts,amsthm,bm}
+\usepackage{amsmath,amsfonts,amsthm,bm, amssymb}
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage{booktabs}
@@ -50,7 +59,7 @@
 % for enum ref
 \usepackage{enumitem}
 % load bibliography tools
-\usepackage[backend=bibtex,natbib,style=numeric,sorting=none]{biblatex}
+\usepackage[backend=bibtex,style=authoryear, natbib=true,sorting=none]{biblatex}
 % alternative with alphanumeric citations (more informative than numbers):
 % \usepackage[backend=bibtex,natbib,style=alphabetic]{biblatex}
 % \usepackage[]{biblatex}
@@ -100,6 +109,11 @@
 % remove this if you won't list any source code
 \usepackage{listings}
 
+% acronyms
+\usepackage{acro}
+
+
+
 
 \hypersetup{unicode}
 \hypersetup{breaklinks=true}
@@ -107,9 +121,9 @@
 \usepackage[noabbrev]{cleveref}
 
 \input{todos} % remove this before compiling the final version
+\input{acro_defs} % acronyms
 
 \input{macros} % use this file for various custom definitions
-
 
 \begin{document}
 
@@ -122,12 +136,18 @@
 \include{dataset}
 \include{experiments}
 \include{results}
+\include{conclusion}
 \include{bibliography}
+\printacronyms
 
 \appendix
 
 % if your attachments are complicated, describe them in a separate appendix
 %\include{attachments}
+\include{gradio_app}
+\include{how_to_download}
+\include{baseline_features}
+\include{confs_and_repots}
 
 \openright
 \end{document}
