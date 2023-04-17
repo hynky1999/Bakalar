@@ -36,7 +36,7 @@
 %%% Fill in your details %%%
 
 % (Note: \xxx is a "ToDo label" which makes the unfilled visible. Remove it.)
-\def\ThesisTitle{Implicit information extraction from news stories}
+\def\ThesisTitle{Implicit Information Extraction from News Stories}
 \def\ThesisAuthor{Hynek Kydlíček}
 \def\YearSubmitted{2023}
 
@@ -53,22 +53,34 @@
 \def\StudyBranch{Artificial Intelligence Bc.}
 
 \def\Dedication{%
-Dedication. \xxx{It is nice to say thanks to supervisors, friends, family, book authors and food providers.}
+I would like to thank my supervisor Mgr. Jindřich Libovický, Ph.D. for his guidance and support throughout the whole process.
+I would also like to thank my family and friends for their support and encouragement.
 }
 
 \def\AbstractEN{%
-\xxx{Abstracts are an abstract form of art. Use the most precise, shortest sentences that state what problem the thesis addresses, how it is approached, pinpoint the exact result achieved, and describe the applications and significance of the results. Highlight anything novel that was discovered or improved by the thesis. Maximum length is 200 words, but try to fit into 120. Abstracts are often used for deciding if a reviewer will be suitable for the thesis; a well-written abstract thus increases the probability of getting a reviewer who will like the thesis.}
-% ABSTRACT IS NOT A COPY OF YOUR THESIS ASSIGNMENT!
+This work deals with information extraction from Czech News Stories. We focus on 4 tasks:
+Publishing server, Article's category, Author's textual gender and Publication day of week. 
+As no dataset for these tasks exists, this work presents a new extensive dataset of 1.5M Czech news articles
+with various metadata. With the dataset, we also publish a new tool C'monCrawl for extracting resources from CommonCrawl
+archive. Tasks are then solved using various machine learning methods mainly based on Transformer architecture.
+Our work sets strong baseline results on the said dataset allowing for further research in the field.
 }
 
 \def\AbstractCS{%
-\xxx{You will need to submit both Czech and English abstract to the SIS, no matter what language you use in the thesis. If writing in English, translate the contents of \texttt{\textbackslash{}AbstractEN} into this field. In case you do not speak czech, your supervisor should be able to help you with the translation.}
+Tato práce se zabývá extrakcí informací z českých zpravodajských článků. Zaměřujeme se na 4 úlohy:
+Vydavatelský server, kategorie článku, textový gender autra a den vydání.
+Protože pro tyto úlohy neexistuje žádná datová sada, představuje tato práce novou rozsáhlou datovout sadu
+čítající 1,5 milionu českých zpravodajských článků s rozličnými metadaty.
+Spolu s datovou sadou publikujeme také nový nástroj C'monCrawl pro extrakci zdrojů z CommonCrawl archivu.
+archivu. Úlohy jsou pak řešeny pomocí různých metod strojového učení založených především na architektuře Transformer.
+Naše práce představuje silný základný výsledek na uvedené datové sadě, který umožňuje další výzkum v této oblasti.
 }
 
 % 3 to 5 keywords (recommended), each enclosed in curly braces.
 % Keywords are useful for indexing and searching for the theses by topic.
 \def\Keywords{%
-\xxx{{key} {words}}
+{Information Extraction}, {Server}, {Category}, {Gender} 
+{Day Of Week}, {C'monCrawl}, {Czech News Dataset}
 }
 
 % If your abstracts are long and do not fit in the infopage, you can make the

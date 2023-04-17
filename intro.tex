@@ -1,54 +1,59 @@
 \chapwithtoc{Introduction}
-Every day there are millions of articles published on the internet. Various authors write those
-with different backgrounds and opinions. Their goal is, however, the same: to convey the information to the reader.
-While the information is usually explicit there are some cases when it is implicit. Such implicit information 
+Every day, there are millions of articles published on the internet. Various authors write those
+with different backgrounds and opinions. Their goal is, however, the same; to convey the information to the reader.
+While the information is usually explicit, there are some cases when it is implicit. Such implicit information 
 is usually intentionally used to shape the reader's opinion. However, it's also possible
 that the author inserts such implicit information unintentionally. It could
 be the result of the author's background or state of the world at the time of writing.
-The author's texts might be more pessimistic at the start of the week while more optimistic before the weekend.
-It might also be possible that women write articles slightly differently than men do.
+The author's texts might be more pessimistic at the start of the week, while more optimistic before the weekend.
+It might also be possible that senior authors write articles slightly differently than their colleagues.
 We thus ask ourselves the following question:
 \begin{quote}
     \textit{Which and how much implicit information can be extracted from the news articles?}
 \end{quote}
 
-As there could be an infinite amount of such fingerprints, we decided to narrow the scope of our research.
-We will only be interested in these four implicit pieces of information:
+As there could be an infinite amount of such fingerprints, we decided to narrow the scope of our research to only:
 \begin{enumerate}
+    \item Article publishing server
     \item The category of the article
-    \item Author's gender
-    \item Day of week when the article was published
-    \item News server where the article was published
+    \item Inferred gender of article author's name
+    \item Publication day of week
 \end{enumerate}
-We also had to narrow the domain of our research to news articles in Czech.
+We also had to narrow the domain of our research to news articles written in Czech.
+
 
 
 \section*{Related Work}
-With the rise of Natural Language Processing (NLP) and Machine Learning (ML)
+With the rise of \ac{nlp} and \ac{ml},
 there has been a lot of research on implicit information in textual content.
 In particular, sentiment analysis and text classification have been researched by many.
-Most notably, \cite{joulinBagTricksEfficient2016} showed that a simple bag of words approach
-with a few hidden layers could achieve state-of-the-art (SOTA) results while being very fast and straightforward.
-\cite{zhangTextUnderstandingScratch2016} inspired by the usage of convolutional neural networks in image classification,
+Most notably, \textcite{joulinBagTricksEfficient2016} showed that a simple \acl{bow} approach
+with a few hidden layers could achieve \ac{sota} results, while being very fast.
+\textcite{zhangTextUnderstandingScratch2016}, inspired by the usage of \acp{cnn} in image classification,
 proposed a similar approach for text classification with excellent results.
-In recent years, state-of-the-art has been achieved by the transformer models \cite{vaswaniAttentionAllYou2017d}.
-Such an approach was used in \cite{devlinBERTPretrainingDeep2019a} where the authors achieved SOTA results on
-all the tasks of GLUE benchmark \cite{wangGLUEMultiTaskBenchmark2019}, which among others, includes 
-sentiment analysis task. Inspired by these results \cite{sunHowFineTuneBERT2020} further investigated possibilities
-of fine-tuning BERT creating eight SOTA results on text classification tasks.
+
+In recent years, \ac{sota} has been achieved by the transformer models~\parencite[see][]{vaswaniAttentionAllYou2017d}.
+Such an approach was used by \textcite{devlinBERTPretrainingDeep2019a}, where the authors achieved \ac{sota} results on
+all the tasks of GLUE benchmark~\parencite{wangGLUEMultiTaskBenchmark2019}, which among others, includes 
+sentiment analysis task. Inspired by these results, \textcite{sunHowFineTuneBERT2020} further investigated possibilities
+of fine-tuning BERT, creating eight \ac{sota} results on text classification tasks.
 
 \section*{Our approach}
-As no dataset with needed labels exists we created one of the most extensive datasets of Czech news articles. 
-With more than 1.5 million articles it is on par with \cite{sidoCzertCzechBERTlike2021}.
-while containing more metadata about the articles.
+As no dataset with needed labels exists, we created one of the most extensive datasets of Czech news articles
+containing more than 1.5 million articles with a large amount of metadata.
+To test human ability on the tasks, we took a subset of the dataset and tested human performance.
 
-To test human ability on the tasks we took a subset of the dataset and tested human performance.
-
-As for machine learning models, we fine-tuned the \textit{RobeCzech} (\cite{strakaRobeCzechCzechRoBERTa2021}),
-and the \textit{Fernet-News} (\cite{leheckaComparisonCzechTransformers2021}) models. 
-We have also used GPT-3 \cite{brownLanguageModelsAre2020b} to test its capabilities.
+As for machine learning models, we created baseline models using the \acl{bow} approach with \acl{mlr}.
+For \ac{dl} models, we fine-tuned the \textit{RobeCzech}~\parencite{strakaRobeCzechCzechRoBERTa2021}
+and the \textit{Fernet-News}~\parencite{leheckaComparisonCzechTransformers2021}. 
+We have also used GPT-3 \parencite{brownLanguageModelsAre2020b} to test its multi-lingual capabilities.
 
 \section*{Structure of the thesis}
-We start with the introduction to text classification, then provide readers with the necessary background knowledge
+We start with the introduction to text classification, then provide reader with the necessary background knowledge
 to understand the models we will use. We proceed to describe dataset creation and its properties.
 Next, we describe the experiments we conducted and their results. Finally, we conclude with a summary of our findings.
+
+\section*{Acknowledgements}
+The Github Copilot\footnote{\url{https://github.com/features/copilot}}
+was used when writing all source codes including training, data analysis and crawlers.
+Grammarly\footnote{\url{https://app.grammarly.com/}} was used to check the grammar and spelling of the thesis.
