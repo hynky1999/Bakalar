@@ -53,34 +53,42 @@
 \def\StudyBranch{Artificial Intelligence Bc.}
 
 \def\Dedication{%
-I would like to thank my supervisor Mgr. Jindřich Libovický, Ph.D. for his guidance and support throughout the whole process.
-I would also like to thank my family and friends for their support and encouragement.
+Firstly, I would like to thank my supervisor Mgr. Jindřich Libovický, Ph.D. for his guidance and support throughout the whole process.
+Secondly, I am grateful to the faculty for providing me with computational resources.
+Last but not least, I would like to extend my thanks to my family, girlfriend, and friends for their support and encouragement.
 }
 
 \def\AbstractEN{%
-This work deals with information extraction from Czech News Stories. We focus on 4 tasks:
-Publishing server, Article's category, Author's textual gender and Publication day of week. 
-As no dataset for these tasks exists, this work presents a new extensive dataset of 1.5M Czech news articles
-with various metadata. With the dataset, we also publish a new tool C'monCrawl for extracting resources from CommonCrawl
-archive. Tasks are then solved using various machine learning methods mainly based on Transformer architecture.
-Our work sets strong baseline results on the said dataset allowing for further research in the field.
+This work deals with information extraction from Czech News Stories. We focus on four tasks: Publishing server,
+Article category, Author's textual gender and Publication day of week.
+Due to the absence of a suitable dataset for the tasks, we present CZEch NEws Classification dataset (CZE-NEC),
+one of the most extensive Czech classification datasets, composed of news articles from
+various sources, spanning over twenty years. Tasks are solved using
+Logistic Regression and pre-trained Transformer encoders.
+Emphasis is put on fine-tuning methods of the Transformer models, which are evaluated in detail.
+The models are compared to human evaluators, revealing significant 
+superiority over humans on all tasks. Furthermore, the models are pitted against
+the commercial large language model GPT-3, outperforming it on half of the tasks,
+despite GPT-3 being significantly larger.
+Our work sets strong baseline results on CZE-NEC allowing for further research in the field.
 }
 
 \def\AbstractCS{%
-Tato práce se zabývá extrakcí informací z českých zpravodajských článků. Zaměřujeme se na 4 úlohy:
-Vydavatelský server, kategorie článku, textový gender autra a den vydání.
-Protože pro tyto úlohy neexistuje žádná datová sada, představuje tato práce novou rozsáhlou datovout sadu
-čítající 1,5 milionu českých zpravodajských článků s rozličnými metadaty.
-Spolu s datovou sadou publikujeme také nový nástroj C'monCrawl pro extrakci zdrojů z CommonCrawl archivu.
-archivu. Úlohy jsou pak řešeny pomocí různých metod strojového učení založených především na architektuře Transformer.
-Naše práce představuje silný základný výsledek na uvedené datové sadě, který umožňuje další výzkum v této oblasti.
+Tato práce se zabývá extrakcí informací z českých zpravodajských článků. Zaměřujeme se na čtyři úlohy:
+vydavatelský server, kategorie článku, textový gender autora a den vydání článk.
+Vzhledem k absenci vhodné datové sady pro tyto úlohy představujeme datovou sadu CZEch NEws Classification (CZE-NEC),
+jeden z největších českých klasifikačních datasetů, který je složen ze zpravodajských článků z různých zdrojů
+pokrývající období dvaceti let. Úlohy jsou řešeny pomocí Lineární regrese a předtrénovaných Transformerů.
+Důraz je kladen na metody dotrénování Transformerů, které jsou podrobně vyhodnoceny. Modely jsou porovnány s lidskými
+hodnotiteli, kteří zaostávají za modely na všech úlohách. Dále jsou modely porovnány s komerčním velkým jazykovým modelem GPT-3,
+který je překonán na polovině úloh, přestože je GPT-3 výrazně větší.
+Naše práce představuje silný startovní výsledek na sadě CZE-NEC, který umožňuje další výzkum v této oblasti.
 }
 
 % 3 to 5 keywords (recommended), each enclosed in curly braces.
 % Keywords are useful for indexing and searching for the theses by topic.
 \def\Keywords{%
-{Information Extraction}, {Server}, {Category}, {Gender} 
-{Day Of Week}, {C'monCrawl}, {Czech News Dataset}
+{Information Extraction}, {Czech News Classification Dataset}, {Transformer}
 }
 
 % If your abstracts are long and do not fit in the infopage, you can make the

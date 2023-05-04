@@ -4,16 +4,14 @@
   date = {2016},
   url = {http://hdl.handle.net/11234/1-1846},
   copyright = {Czech National Corpus (Shuffled Corpus Data)},
-  keywords = {/unread}
 }
 
 @misc{11858/00-097C-0000-0001-CCCF-C,
   title = {Czes},
-  author = {{author}, (:unav) Unknown},
+  author = {{author}, Unknown},
   date = {2011},
   url = {http://hdl.handle.net/11858/00-097C-0000-0001-CCCF-C},
   copyright = {Attribution-NonCommercial-NoDerivs 3.0 Unported (CC BY-NC-ND 3.0)},
-  keywords = {/unread}
 }
 
 @misc{11858/00-097C-0000-0022-6133-9,
@@ -22,31 +20,6 @@
   date = {2011},
   url = {http://hdl.handle.net/11858/00-097C-0000-0022-6133-9},
   copyright = {Attribution-ShareAlike 3.0 Unported (CC BY-SA 3.0)},
-  keywords = {/unread}
-}
-
-@online{ActiveMQ,
-  title = {{{ActiveMQ}}},
-  url = {https://activemq.apache.org/components/artemis/},
-  urldate = {2023-02-22},
-  keywords = {/unread},
-  file = {/home/kydliceh/Zotero/storage/82SYQ2QW/artemis.html}
-}
-
-@online{adhikariDocBERTBERTDocument2019,
-  title = {{{DocBERT}}: {{BERT}} for {{Document Classification}}},
-  shorttitle = {{{DocBERT}}},
-  author = {Adhikari, Ashutosh and Ram, Achyudh and Tang, Raphael and Lin, Jimmy},
-  date = {2019-08-22},
-  eprint = {1904.08398},
-  eprinttype = {arxiv},
-  eprintclass = {cs},
-  url = {http://arxiv.org/abs/1904.08398},
-  urldate = {2023-03-01},
-  abstract = {We present, to our knowledge, the first application of BERT to document classification. A few characteristics of the task might lead one to think that BERT is not the most appropriate model: syntactic structures matter less for content categories, documents can often be longer than typical BERT input, and documents often have multiple labels. Nevertheless, we show that a straightforward classification model using BERT is able to achieve the state of the art across four popular datasets. To address the computational expense associated with BERT inference, we distill knowledge from BERT-large to small bidirectional LSTMs, reaching BERT-base parity on multiple datasets using 30x fewer parameters. The primary contribution of our paper is improved baselines that can provide the foundation for future work.},
-  pubstate = {preprint},
-  keywords = {Computer Science - Computation and Language},
-  file = {/home/kydliceh/Zotero/storage/YVGNEFPV/Adhikari et al. - 2019 - DocBERT BERT for Document Classification.pdf;/home/kydliceh/Zotero/storage/L793JUZU/1904.html}
 }
 
 @inproceedings{adhikariRethinkingComplexNeural2019,
@@ -59,7 +32,6 @@
   location = {{Minneapolis, Minnesota}},
   doi = {10.18653/v1/N19-1408},
   url = {https://aclanthology.org/N19-1408},
-  urldate = {2023-03-01},
   abstract = {Neural network models for many NLP tasks have grown increasingly complex in recent years, making training and deployment more difficult. A number of recent papers have questioned the necessity of such architectures and found that well-executed, simpler models are quite effective. We show that this is also the case for document classification: in a large-scale reproducibility study of several recent neural models, we find that a simple BiLSTM architecture with appropriate regularization yields accuracy and F1 that are either competitive or exceed the state of the art on four standard benchmark datasets. Surprisingly, our simple model is able to achieve these results without attention mechanisms. While these regularization techniques, borrowed from language modeling, are not novel, to our knowledge we are the first to apply them in this context. Our work provides an open-source platform and the foundation for future work in document classification.},
   eventtitle = {{{NAACL-HLT}} 2019},
   keywords = {/unread},
@@ -84,7 +56,6 @@
   publisher = {{Association for Computational Linguistics}},
   location = {{Online}},
   url = {https://aclanthology.org/2020.wmt-1.1},
-  urldate = {2023-04-20},
   abstract = {This paper presents the results of the news translation task and the similar language translation task, both organised alongside the Conference on Machine Translation (WMT) 2020. In the news task, participants were asked to build machine translation systems for any of 11 language pairs, to be evaluated on test sets consisting mainly of news stories. The task was also opened up to additional test suites to probe specific aspects of translation. In the similar language translation task, participants built machine translation systems for translating between closely related pairs of languages.},
   eventtitle = {{{WMT}} 2020},
   keywords = {/unread},
@@ -99,7 +70,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/2005.14165},
-  urldate = {2023-03-14},
   abstract = {Recent work has demonstrated substantial gains on many NLP tasks and benchmarks by pre-training on a large corpus of text followed by fine-tuning on a specific task. While typically task-agnostic in architecture, this method still requires task-specific fine-tuning datasets of thousands or tens of thousands of examples. By contrast, humans can generally perform a new language task from only a few examples or from simple instructions - something which current NLP systems still largely struggle to do. Here we show that scaling up language models greatly improves task-agnostic, few-shot performance, sometimes even reaching competitiveness with prior state-of-the-art fine-tuning approaches. Specifically, we train GPT-3, an autoregressive language model with 175 billion parameters, 10x more than any previous non-sparse language model, and test its performance in the few-shot setting. For all tasks, GPT-3 is applied without any gradient updates or fine-tuning, with tasks and few-shot demonstrations specified purely via text interaction with the model. GPT-3 achieves strong performance on many NLP datasets, including translation, question-answering, and cloze tasks, as well as several tasks that require on-the-fly reasoning or domain adaptation, such as unscrambling words, using a novel word in a sentence, or performing 3-digit arithmetic. At the same time, we also identify some datasets where GPT-3's few-shot learning still struggles, as well as some datasets where GPT-3 faces methodological issues related to training on large web corpora. Finally, we find that GPT-3 can generate samples of news articles which human evaluators have difficulty distinguishing from articles written by humans. We discuss broader societal impacts of this finding and of GPT-3 in general.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Computation and Language},
@@ -114,7 +84,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs, stat},
   url = {http://arxiv.org/abs/1904.10509},
-  urldate = {2023-04-01},
   abstract = {Transformers are powerful sequence models, but require time and memory that grows quadratically with the sequence length. In this paper we introduce sparse factorizations of the attention matrix which reduce this to \$O(n \textbackslash sqrt\{n\})\$. We also introduce a) a variation on architecture and initialization to train deeper networks, b) the recomputation of attention matrices to save memory, and c) fast attention kernels for training. We call networks with these changes Sparse Transformers, and show they can model sequences tens of thousands of timesteps long using hundreds of layers. We use the same architecture to model images, audio, and text from raw bytes, setting a new state of the art for density modeling of Enwik8, CIFAR-10, and ImageNet-64. We generate unconditional samples that demonstrate global coherence and great diversity, and show it is possible in principle to use self-attention to model sequences of length one million or more.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Machine Learning,Statistics - Machine Learning},
@@ -130,7 +99,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/2003.10555},
-  urldate = {2023-04-01},
   abstract = {Masked language modeling (MLM) pre-training methods such as BERT corrupt the input by replacing some tokens with [MASK] and then train a model to reconstruct the original tokens. While they produce good results when transferred to downstream NLP tasks, they generally require large amounts of compute to be effective. As an alternative, we propose a more sample-efficient pre-training task called replaced token detection. Instead of masking the input, our approach corrupts it by replacing some tokens with plausible alternatives sampled from a small generator network. Then, instead of training a model that predicts the original identities of the corrupted tokens, we train a discriminative model that predicts whether each token in the corrupted input was replaced by a generator sample or not. Thorough experiments demonstrate this new pre-training task is more efficient than MLM because the task is defined over all input tokens rather than just the small subset that was masked out. As a result, the contextual representations learned by our approach substantially outperform the ones learned by BERT given the same model size, data, and compute. The gains are particularly strong for small models; for example, we train a model on one GPU for 4 days that outperforms GPT (trained using 30x more compute) on the GLUE natural language understanding benchmark. Our approach also works well at scale, where it performs comparably to RoBERTa and XLNet while using less than 1/4 of their compute and outperforms them when using the same amount of compute.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Computation and Language},
@@ -140,7 +108,6 @@
 @online{CommonCrawl,
   title = {Common {{Crawl}}},
   url = {https://commoncrawl.org/},
-  urldate = {2023-02-22},
   langid = {american},
   keywords = {/unread},
   file = {/home/kydliceh/Zotero/storage/HIGRE2IE/commoncrawl.org.html}
@@ -154,7 +121,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/1911.02116},
-  urldate = {2023-03-31},
   abstract = {This paper shows that pretraining multilingual language models at scale leads to significant performance gains for a wide range of cross-lingual transfer tasks. We train a Transformer-based masked language model on one hundred languages, using more than two terabytes of filtered CommonCrawl data. Our model, dubbed XLM-R, significantly outperforms multilingual BERT (mBERT) on a variety of cross-lingual benchmarks, including +14.6\% average accuracy on XNLI, +13\% average F1 score on MLQA, and +2.4\% F1 score on NER. XLM-R performs particularly well on low-resource languages, improving 15.7\% in XNLI accuracy for Swahili and 11.4\% for Urdu over previous XLM models. We also present a detailed empirical analysis of the key factors that are required to achieve these gains, including the trade-offs between (1) positive transfer and capacity dilution and (2) the performance of high and low resource languages at scale. Finally, we show, for the first time, the possibility of multilingual modeling without sacrificing per-language performance; XLM-R is very competitive with strong monolingual models on the GLUE and XNLI benchmarks. We will make our code, data and models publicly available.},
   pubstate = {preprint},
   keywords = {Computer Science - Computation and Language},
@@ -173,7 +139,6 @@
   location = {{New York, NY, USA}},
   doi = {10.1145/3442442.3452325},
   url = {https://doi.org/10.1145/3442442.3452325},
-  urldate = {2023-02-16},
   abstract = {To attract unsuspecting readers, news article headlines and abstracts are often written with speculative sentences or clauses. Male dominance in the news is very evident, whereas females are seen as “eye candy” or “inferior”, and are underrepresented and under-examined within the same news categories as their male counterparts. In this paper, we present an initial study on gender bias in news abstracts in two large English news datasets used for news recommendation and news classification. We perform three large-scale, yet effective text-analysis fairness measurements on 296,965 news abstracts. In particular, to our knowledge we construct two of the largest benchmark datasets of possessive (gender-specific and gender-neutral) nouns and attribute (career-related and family-related) words datasets1 which we will release to foster both bias and fairness research aid in developing fair NLP models to eliminate the paradox of gender bias. Our studies demonstrate that females are immensely marginalized and suffer from socially-constructed biases in the news. This paper individually devises a methodology whereby news content can be analyzed on a large scale utilizing natural language processing (NLP) techniques from machine learning (ML) to discover both implicit and explicit gender biases.},
   isbn = {978-1-4503-8313-4},
   keywords = {Gender bias,Media bias,News bias},
@@ -191,7 +156,6 @@
   location = {{Ljubljana Slovenia}},
   doi = {10.1145/3442442.3452325},
   url = {https://dl.acm.org/doi/10.1145/3442442.3452325},
-  urldate = {2023-02-16},
   abstract = {To attract unsuspecting readers, news article headlines and abstracts are often written with speculative sentences or clauses. Male dominance in the news is very evident, whereas females are seen as “eye candy” or “inferior”, and are underrepresented and under-examined within the same news categories as their male counterparts. In this paper, we present an initial study on gender bias in news abstracts in two large English news datasets used for news recommendation and news classification. We perform three large-scale, yet effective textanalysis fairness measurements on 296,965 news abstracts. In particular, to our knowledge we construct two of the largest benchmark datasets of possessive (gender-specific and gender-neutral) nouns and attribute (career-related and family-related) words datasets1 which we will release to foster both bias and fairness research aid in developing fair NLP models to eliminate the paradox of gender bias. Our studies demonstrate that females are immensely marginalized and suffer from socially-constructed biases in the news. This paper individually devises a methodology whereby news content can be analyzed on a large scale utilizing natural language processing (NLP) techniques from machine learning (ML) to discover both implicit and explicit gender biases.},
   eventtitle = {{{WWW}} '21: {{The Web Conference}} 2021},
   isbn = {978-1-4503-8313-4},
@@ -207,7 +171,6 @@
   volume = {28},
   publisher = {{Curran Associates, Inc.}},
   url = {https://papers.nips.cc/paper_files/paper/2015/hash/7137debd45ae4d0ab9aa953017286b20-Abstract.html},
-  urldate = {2023-03-28},
   abstract = {We present two approaches to use unlabeled data to improve Sequence Learningwith recurrent networks. The first approach is to predict what comes next in asequence, which is a language model in NLP. The second approach is to use asequence autoencoder, which reads the input sequence into a vector and predictsthe input sequence again. These two algorithms can be used as a “pretraining”algorithm for a later supervised sequence learning algorithm. In other words, theparameters obtained from the pretraining step can then be used as a starting pointfor other supervised training models. In our experiments, we find that long shortterm memory recurrent networks after pretrained with the two approaches becomemore stable to train and generalize better. With pretraining, we were able toachieve strong performance in many classification tasks, such as text classificationwith IMDB, DBpedia or image recognition in CIFAR-10.},
   keywords = {/unread},
   file = {/home/kydliceh/Zotero/storage/YIV3DX53/Dai and Le - 2015 - Semi-supervised Sequence Learning.pdf}
@@ -222,7 +185,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs, math, stat},
   url = {http://arxiv.org/abs/1407.0202},
-  urldate = {2023-03-31},
   abstract = {In this work we introduce a new optimisation method called SAGA in the spirit of SAG, SDCA, MISO and SVRG, a set of recently proposed incremental gradient algorithms with fast linear convergence rates. SAGA improves on the theory behind SAG and SVRG, with better theoretical convergence rates, and has support for composite objectives where a proximal operator is used on the regulariser. Unlike SDCA, SAGA supports non-strongly convex problems directly, and is adaptive to any inherent strong convexity of the problem. We give experimental results showing the effectiveness of our method.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Machine Learning,Mathematics - Optimization and Control,Statistics - Machine Learning},
@@ -239,7 +201,6 @@
   eprintclass = {cs},
   doi = {10.48550/arXiv.1810.04805},
   url = {http://arxiv.org/abs/1810.04805},
-  urldate = {2023-01-25},
   abstract = {We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. Unlike recent language representation models, BERT is designed to pre-train deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers. As a result, the pre-trained BERT model can be fine-tuned with just one additional output layer to create state-of-the-art models for a wide range of tasks, such as question answering and language inference, without substantial task-specific architecture modifications. BERT is conceptually simple and empirically powerful. It obtains new state-of-the-art results on eleven natural language processing tasks, including pushing the GLUE score to 80.5\% (7.7\% point absolute improvement), MultiNLI accuracy to 86.7\% (4.6\% absolute improvement), SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement) and SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute improvement).},
   pubstate = {preprint},
   keywords = {Computer Science - Computation and Language},
@@ -256,7 +217,6 @@
   pages = {12792--12804},
   publisher = {{Curran Associates, Inc.}},
   url = {https://proceedings.neurips.cc/paper/2020/hash/96671501524948bc3937b4b30d0e57b9-Abstract.html},
-  urldate = {2023-01-11},
   abstract = {BERTs are incapable of processing long texts due to its quadratically increasing memory and time consumption. The straightforward thoughts to address this problem, such as slicing the text by a sliding window or simplifying transformers, suffer from insufficient long-range attentions or need customized CUDA kernels. The limited text length of BERT reminds us the limited capacity (5∼ 9 chunks) of the working memory of humans – then how do human beings Cognize Long TeXts? Founded on the cognitive theory stemming from Baddeley, our CogLTX framework identifies key sentences by training a judge model, concatenates them for reasoning and enables multi-step reasoning via rehearsal and decay. Since relevance annotations are usually unavailable, we propose to use treatment experiments to create supervision. As a general algorithm, CogLTX outperforms or gets comparable results to SOTA models on NewsQA, HotpotQA, multi-class and multi-label long-text classification tasks with memory overheads independent of the text length.},
   file = {/home/kydliceh/Zotero/storage/VZQUNATZ/Ding et al. - 2020 - CogLTX Applying BERT to Long Texts.pdf}
 }
@@ -264,7 +224,6 @@
 @online{EfficientTrainingMultiple,
   title = {Efficient {{Training}} on {{Multiple GPUs}}},
   url = {https://huggingface.co/docs/transformers/perf_train_gpu_many},
-  urldate = {2023-02-26},
   abstract = {We’re on a journey to advance and democratize artificial intelligence through open source and open science.},
   keywords = {/unread}
 }
@@ -274,6 +233,16 @@
   author = {Fuks, Olga},
   langid = {english},
   file = {/home/kydliceh/Zotero/storage/SBTVDB54/Fuks - Classiﬁcation of News Dataset.pdf}
+}
+
+@inproceedings{fuksClassificationNewsDataset2018,
+  title = {Classification of {{News Dataset}}},
+  author = {Fuks, O.},
+  date = {2018},
+  url = {https://www.semanticscholar.org/paper/Classification-of-News-Dataset-Fuks/1461d3be4cd8871c7fbc2808c83d69b7057d5e57},
+  abstract = {We used an Embedding layer of Keras to learn word embeddings, then applied convolutional layers and/or LSTM [2] layer. We also tried using pretrained GloVe embeddings [3] but the accuracy was lower then when learning embeddings from data. Surprisingly, the accuracy on dev dataset achieved by NN models (Table 2) was about the same as of logistic regression. We believe there are a few reasons for such model performance: 1) Class imbalance 2) Combination of categories in one news 3) Overlap of some news categories (e.g Politics and World news). That is why we also looked at the top 3 labels predicted by each model – in this case, maximum accuracy was 88.72\% on the dev set. Results},
+  keywords = {/unread},
+  file = {/home/kydliceh/Zotero/storage/4A7EBZLR/Fuks - 2018 - Classification of News Dataset.pdf}
 }
 
 @book{galtonFingerPrintsFrancis1892,
@@ -301,21 +270,13 @@
   file = {/home/kydliceh/Zotero/storage/Z9XK9U2S/Gao et al. - 2021 - Limitations of Transformers on Clinical Text Class.pdf;/home/kydliceh/Zotero/storage/BKBGUV3H/9364676.html}
 }
 
-@article{haagsmaOverviewCrossGenreGender,
-  title = {Overview of the {{Cross-Genre Gender Prediction Shared Task}} on {{Dutch}} at {{CLIN29}}},
-  author = {Haagsma, Hessel and Kreutz, Tim and Medvedeva, Masha and Nissim, Malvina},
-  abstract = {This overview presents the results of the cross-genre gender prediction task (GxG) organized at CLIN29. Teams were tasked with training a system to predict the gender of authors of tweets, YouTube comments and news articles. In the cross-genre setting, systems were trained on two genres, and tested on the other to assess domain adaptivity of the solutions. Eight teams participated in the shared task. Performance was generally better in the in-genre setting. In the cross-genre settings, performance on news articles declined the most compared to other target genres.},
-  langid = {english},
-  file = {/home/kydliceh/Zotero/storage/KYV9VWSK/Haagsma et al. - Overview of the Cross-Genre Gender Prediction Shar.pdf}
-}
-
-@article{haagsmaOverviewCrossGenreGendera,
-  title = {Overview of the {{Cross-Genre Gender Prediction Shared Task}} on {{Dutch}} at {{CLIN29}}},
-  author = {Haagsma, Hessel and Kreutz, Tim and Medvedeva, Masha and Nissim, Malvina},
-  abstract = {This overview presents the results of the cross-genre gender prediction task (GxG) organized at CLIN29. Teams were tasked with training a system to predict the gender of authors of tweets, YouTube comments and news articles. In the cross-genre setting, systems were trained on two genres, and tested on the other to assess domain adaptivity of the solutions. Eight teams participated in the shared task. Performance was generally better in the in-genre setting. In the cross-genre settings, performance on news articles declined the most compared to other target genres.},
-  langid = {english},
-  keywords = {/unread},
-  file = {/home/kydliceh/Zotero/storage/37BL8YNE/Haagsma et al. - Overview of the Cross-Genre Gender Prediction Shar.pdf}
+@inproceedings{haagsma2019overview,
+  title={Overview of the CLIN29 Shared Task on Cross-Genre Gender Prediction in Dutch.},
+  author={Haagsma, Hessel and Kreutz, Tim and Medvedeva, Masha and Daelemans, Walter and Nissim, Malvina},
+  booktitle={CEUR workshop proceedings},
+  number={2453},
+  pages={1--5},
+  year={2019}
 }
 
 @inproceedings{habernalSentimentAnalysisCzech2013,
@@ -327,7 +288,6 @@
   publisher = {{Association for Computational Linguistics}},
   location = {{Atlanta, Georgia}},
   url = {https://aclanthology.org/W13-1609},
-  urldate = {2023-04-20},
   eventtitle = {{{WASSA}} 2013},
   keywords = {/unread},
   file = {/home/kydliceh/Zotero/storage/IYTBU7W8/Habernal et al. - 2013 - Sentiment Analysis in Czech Social Media Using Sup.pdf}
@@ -343,7 +303,6 @@
   location = {{Melbourne, Australia}},
   doi = {10.18653/v1/P18-1031},
   url = {https://aclanthology.org/P18-1031},
-  urldate = {2023-01-11},
   abstract = {Inductive transfer learning has greatly impacted computer vision, but existing approaches in NLP still require task-specific modifications and training from scratch. We propose Universal Language Model Fine-tuning (ULMFiT), an effective transfer learning method that can be applied to any task in NLP, and introduce techniques that are key for fine-tuning a language model. Our method significantly outperforms the state-of-the-art on six text classification tasks, reducing the error by 18-24\% on the majority of datasets. Furthermore, with only 100 labeled examples, it matches the performance of training from scratch on 100 times more data. We open-source our pretrained models and code.},
   eventtitle = {{{ACL}} 2018},
   file = {/home/kydliceh/Zotero/storage/PDQ92YD2/Howard and Ruder - 2018 - Universal Language Model Fine-tuning for Text Clas.pdf}
@@ -357,7 +316,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs, stat},
   url = {http://arxiv.org/abs/1803.05407},
-  urldate = {2023-03-01},
   abstract = {Deep neural networks are typically trained by optimizing a loss function with an SGD variant, in conjunction with a decaying learning rate, until convergence. We show that simple averaging of multiple points along the trajectory of SGD, with a cyclical or constant learning rate, leads to better generalization than conventional training. We also show that this Stochastic Weight Averaging (SWA) procedure finds much flatter solutions than SGD, and approximates the recent Fast Geometric Ensembling (FGE) approach with a single model. Using SWA we achieve notable improvement in test accuracy over conventional SGD training on a range of state-of-the-art residual networks, PyramidNets, DenseNets, and Shake-Shake networks on CIFAR-10, CIFAR-100, and ImageNet. In short, SWA is extremely easy to implement, improves generalization, and has almost no computational overhead.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Artificial Intelligence,Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning,Statistics - Machine Learning},
@@ -371,7 +329,6 @@
   date = {2019},
   issn = {1751-7575},
   url = {https://documentserver.uhasselt.be//handle/1942/28116},
-  urldate = {2023-04-13},
   abstract = {The digitalisation of business processes has led to the new opportunity of investigating process executions by using process mining.  The complex preparation step of building an event log is often  perceived as a technical task, although business considerations  should be involved. In this paper, we examine via an experimental study whether and how a guiding procedure supports the performance of this task. Our findings provide insights into the parts played by business and technical considerations in this task and suggest that procedural guidance positively impacts the process of building an event log and its outcome.},
   langid = {english},
   keywords = {/unread},
@@ -387,7 +344,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/1607.01759},
-  urldate = {2023-02-22},
   abstract = {This paper explores a simple and efficient baseline for text classification. Our experiments show that our fast text classifier fastText is often on par with deep learning classifiers in terms of accuracy, and many orders of magnitude faster for training and evaluation. We can train fastText on more than one billion words in less than ten minutes using a standard multicore\textasciitilde CPU, and classify half a million sentences among\textasciitilde 312K classes in less than a minute.},
   pubstate = {preprint},
   keywords = {Computer Science - Computation and Language},
@@ -403,7 +359,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/1612.03651},
-  urldate = {2023-02-22},
   abstract = {We consider the problem of producing compact architectures for text classification, such that the full model fits in a limited amount of memory. After considering different solutions inspired by the hashing literature, we propose a method built upon product quantization to store word embeddings. While the original technique leads to a loss in accuracy, we adapt this method to circumvent quantization artefacts. Our experiments carried out on several benchmarks show that our approach typically requires two orders of magnitude less memory than fastText while being only slightly inferior with respect to accuracy. As a result, it outperforms the state of the art by a good margin in terms of the compromise between memory usage and accuracy.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Computation and Language,Computer Science - Machine Learning},
@@ -436,7 +391,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/2109.07185},
-  urldate = {2023-03-30},
   abstract = {In this work, we describe our experiments and participating systems in the BioASQ Task 9b Phase B challenge of biomedical question answering. We have focused on finding the ideal answers and investigated multi-task fine-tuning and gradual unfreezing techniques on transformer-based language models. For factoid questions, our ALBERT-based systems ranked first in test batch 1 and fourth in test batch 2. Our DistilBERT systems outperformed the ALBERT variants in test batches 4 and 5 despite having 81\% fewer parameters than ALBERT. However, we observed that gradual unfreezing had no significant impact on the model's accuracy compared to standard fine-tuning.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Computation and Language},
@@ -452,7 +406,6 @@
   eprintclass = {cs},
   doi = {10.48550/arXiv.1506.06726},
   url = {http://arxiv.org/abs/1506.06726},
-  urldate = {2023-01-25},
   abstract = {We describe an approach for unsupervised learning of a generic, distributed sentence encoder. Using the continuity of text from books, we train an encoder-decoder model that tries to reconstruct the surrounding sentences of an encoded passage. Sentences that share semantic and syntactic properties are thus mapped to similar vector representations. We next introduce a simple vocabulary expansion method to encode words that were not seen as part of training, allowing us to expand our vocabulary to a million words. After training our model, we extract and evaluate our vectors with linear models on 8 tasks: semantic relatedness, paraphrase detection, image-sentence ranking, question-type classification and 4 benchmark sentiment and subjectivity datasets. The end result is an off-the-shelf encoder that can produce highly generic sentence representations that are robust and perform well in practice. We will make our encoder publicly available.},
   pubstate = {preprint},
   keywords = {Computer Science - Computation and Language,Computer Science - Machine Learning},
@@ -467,7 +420,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/2112.01810},
-  urldate = {2023-03-31},
   abstract = {Web search engines focus on serving highly relevant results within hundreds of milliseconds. Pre-trained language transformer models such as BERT are therefore hard to use in this scenario due to their high computational demands. We present our real-time approach to the document ranking problem leveraging a BERT-based siamese architecture. The model is already deployed in a commercial search engine and it improves production performance by more than 3\%. For further research and evaluation, we release DaReCzech, a unique data set of 1.6 million Czech user query-document pairs with manually assigned relevance levels. We also release Small-E-Czech, an Electra-small language model pre-trained on a large Czech corpus. We believe this data will support endeavours both of search relevance and multilingual-focused research communities.},
   pubstate = {preprint},
   keywords = {Computer Science - Computation and Language,Computer Science - Information Retrieval},
@@ -482,7 +434,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/2007.03006},
-  urldate = {2023-04-20},
   abstract = {We present a new release of the Czech-English parallel corpus CzEng 2.0 consisting of over 2 billion words (2 "gigawords") in each language. The corpus contains document-level information and is filtered with several techniques to lower the amount of noise. In addition to the data in the previous version of CzEng, it contains new authentic and also high-quality synthetic parallel data. CzEng is freely available for research and educational purposes.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Computation and Language},
@@ -498,7 +449,6 @@
   publisher = {{Association for Computational Linguistics}},
   location = {{Abu Dhabi, United Arab Emirates (Hybrid)}},
   url = {https://aclanthology.org/2022.wmt-1.1},
-  urldate = {2023-04-20},
   abstract = {This paper presents the results of the General Machine Translation Task organised as part of the Conference on Machine Translation (WMT) 2022. In the general MT task, participants were asked to build machine translation systems for any of 11 language pairs, to be evaluated on test sets consisting of four different domains. We evaluate system outputs with human annotators using two different techniques: reference-based direct assessment and (DA) and a combination of DA and scalar quality metric (DA+SQM).},
   eventtitle = {{{WMT}} 2022},
   keywords = {/unread},
@@ -518,7 +468,6 @@
   issn = {2078-2489},
   doi = {10.3390/info10040150},
   url = {https://www.mdpi.com/2078-2489/10/4/150},
-  urldate = {2023-03-24},
   abstract = {In recent years, there has been an exponential growth in the number of complex documents and texts that require a deeper understanding of machine learning methods to be able to accurately classify texts in many applications. Many machine learning approaches have achieved surpassing results in natural language processing. The success of these learning algorithms relies on their capacity to understand complex models and non-linear relationships within data. However, finding suitable structures, architectures, and techniques for text classification is a challenge for researchers. In this paper, a brief overview of text classification algorithms is discussed. This overview covers different text feature extractions, dimensionality reduction methods, existing algorithms and techniques, and evaluations methods. Finally, the limitations of each technique and their application in real-world problems are discussed.},
   issue = {4},
   langid = {english},
@@ -534,7 +483,6 @@
   publisher = {{European Language Resources Association (ELRA)}},
   location = {{Miyazaki, Japan}},
   url = {https://aclanthology.org/L18-1687},
-  urldate = {2023-04-20},
   eventtitle = {{{LREC}} 2018},
   keywords = {/unread},
   file = {/home/kydliceh/Zotero/storage/5E3FBUL7/Král and Lenc - 2018 - Czech Text Document Corpus v 2.0.pdf}
@@ -551,7 +499,6 @@
   location = {{Brussels, Belgium}},
   doi = {10.18653/v1/D18-2012},
   url = {https://aclanthology.org/D18-2012},
-  urldate = {2023-04-01},
   abstract = {This paper describes SentencePiece, a language-independent subword tokenizer and detokenizer designed for Neural-based text processing, including Neural Machine Translation. It provides open-source C++ and Python implementations for subword units. While existing subword segmentation tools assume that the input is pre-tokenized into word sequences, SentencePiece can train subword models directly from raw sentences, which allows us to make a purely end-to-end and language independent system. We perform a validation experiment of NMT on English-Japanese machine translation, and find that it is possible to achieve comparable accuracy to direct subword training from raw sentences. We also compare the performance of subword training and segmentation with various configurations. SentencePiece is available under the Apache 2 license at https://github.com/google/sentencepiece.},
   keywords = {/unread},
   file = {/home/kydliceh/Zotero/storage/TBRQKDW5/Kudo and Richardson - 2018 - SentencePiece A simple and language independent s.pdf}
@@ -568,7 +515,6 @@
   location = {{New York, NY, USA}},
   doi = {10.1145/215206.215333},
   url = {https://doi.org/10.1145/215206.215333},
-  urldate = {2023-02-24},
   isbn = {978-0-89791-714-8},
   keywords = {/unread},
   file = {/home/kydliceh/Zotero/storage/ENJXVHAG/Kupiec et al. - 1995 - A trainable document summarizer.pdf}
@@ -582,7 +528,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/1901.07291},
-  urldate = {2023-03-31},
   abstract = {Recent studies have demonstrated the efficiency of generative pretraining for English natural language understanding. In this work, we extend this approach to multiple languages and show the effectiveness of cross-lingual pretraining. We propose two methods to learn cross-lingual language models (XLMs): one unsupervised that only relies on monolingual data, and one supervised that leverages parallel data with a new cross-lingual language model objective. We obtain state-of-the-art results on cross-lingual classification, unsupervised and supervised machine translation. On XNLI, our approach pushes the state of the art by an absolute gain of 4.9\% accuracy. On unsupervised machine translation, we obtain 34.3 BLEU on WMT'16 German-English, improving the previous state of the art by more than 9 BLEU. On supervised machine translation, we obtain a new state of the art of 38.5 BLEU on WMT'16 Romanian-English, outperforming the previous best approach by more than 4 BLEU. Our code and pretrained models will be made publicly available.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Computation and Language},
@@ -603,7 +548,6 @@
   issn = {0006341X, 15410420},
   doi = {10.2307/2529310},
   url = {http://www.jstor.org/stable/2529310},
-  urldate = {2023-04-12},
   abstract = {[This paper presents a general statistical methodology for the analysis of multivariate categorical data arising from observer reliability studies. The procedure essentially involves the construction of functions of the observed proportions which are directed at the extent to which the observers agree among themselves and the construction of test statistics for hypotheses involving these functions. Tests for interobserver bias are presented in terms of first-order marginal homogeneity and measures of interobserver agreement are developed as generalized kappa-type statistics. These procedures are illustrated with a clinical diagnosis example from the epidemiological literature.]},
   keywords = {/unread}
 }
@@ -617,7 +561,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs, stat},
   url = {http://arxiv.org/abs/1906.02124},
-  urldate = {2023-03-01},
   abstract = {In this work we focus on fine-tuning a pre-trained BERT model and applying it to patent classification. When applied to large datasets of over two millions patents, our approach outperforms the state of the art by an approach using CNN with word embeddings. In addition, we focus on patent claims without other parts in patent documents. Our contributions include: (1) a new state-of-the-art method based on pre-trained BERT model and fine-tuning for patent classification, (2) a large dataset USPTO-3M at the CPC subclass level with SQL statements that can be used by future researchers, (3) showing that patent claims alone are sufficient for classification task, in contrast to conventional wisdom.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Computation and Language,Computer Science - Machine Learning,Statistics - Machine Learning},
@@ -635,7 +578,6 @@
   pages = {27--37},
   doi = {10.1007/978-3-030-89579-2_3},
   url = {http://arxiv.org/abs/2107.10042},
-  urldate = {2023-03-31},
   abstract = {In this paper, we present our progress in pre-training monolingual Transformers for Czech and contribute to the research community by releasing our models for public. The need for such models emerged from our effort to employ Transformers in our language-specific tasks, but we found the performance of the published multilingual models to be very limited. Since the multilingual models are usually pre-trained from 100+ languages, most of low-resourced languages (including Czech) are under-represented in these models. At the same time, there is a huge amount of monolingual training data available in web archives like Common Crawl. We have pre-trained and publicly released two monolingual Czech Transformers and compared them with relevant public models, trained (at least partially) for Czech. The paper presents the Transformers pre-training procedure as well as a comparison of pre-trained models on text classification task from various domains.},
   keywords = {Computer Science - Computation and Language},
   file = {/home/kydliceh/Zotero/storage/6SN8JDAY/Lehečka and Švec - 2021 - Comparison of Czech Transformers on Text Classific.pdf;/home/kydliceh/Zotero/storage/5ZEDI85S/2107.html}
@@ -649,7 +591,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/1901.11504},
-  urldate = {2023-01-11},
   abstract = {In this paper, we present a Multi-Task Deep Neural Network (MT-DNN) for learning representations across multiple natural language understanding (NLU) tasks. MT-DNN not only leverages large amounts of cross-task data, but also benefits from a regularization effect that leads to more general representations in order to adapt to new tasks and domains. MT-DNN extends the model proposed in Liu et al. (2015) by incorporating a pre-trained bidirectional transformer language model, known as BERT (Devlin et al., 2018). MT-DNN obtains new state-of-the-art results on ten NLU tasks, including SNLI, SciTail, and eight out of nine GLUE tasks, pushing the GLUE benchmark to 82.7\% (2.2\% absolute improvement). We also demonstrate using the SNLI and SciTail datasets that the representations learned by MT-DNN allow domain adaptation with substantially fewer in-domain labels than the pre-trained BERT representations. The code and pre-trained models are publicly available at https://github.com/namisan/mt-dnn.},
   pubstate = {preprint},
   keywords = {Computer Science - Computation and Language},
@@ -665,7 +606,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/1907.11692},
-  urldate = {2023-03-27},
   abstract = {Language model pretraining has led to significant performance gains but careful comparison between different approaches is challenging. Training is computationally expensive, often done on private datasets of different sizes, and, as we will show, hyperparameter choices have significant impact on the final results. We present a replication study of BERT pretraining (Devlin et al., 2019) that carefully measures the impact of many key hyperparameters and training data size. We find that BERT was significantly undertrained, and can match or exceed the performance of every model published after it. Our best model achieves state-of-the-art results on GLUE, RACE and SQuAD. These results highlight the importance of previously overlooked design choices, and raise questions about the source of recently reported improvements. We release our models and code.},
   pubstate = {preprint},
   keywords = {Computer Science - Computation and Language},
@@ -680,7 +620,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/1301.3781},
-  urldate = {2023-04-01},
   abstract = {We propose two novel model architectures for computing continuous vector representations of words from very large data sets. The quality of these representations is measured in a word similarity task, and the results are compared to the previously best performing techniques based on different types of neural networks. We observe large improvements in accuracy at much lower computational cost, i.e. it takes less than a day to learn high quality word vectors from a 1.6 billion words data set. Furthermore, we show that these vectors provide state-of-the-art performance on our test set for measuring syntactic and semantic word similarities.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Computation and Language},
@@ -696,7 +635,6 @@
   eprintclass = {cs},
   doi = {10.48550/arXiv.2209.11429},
   url = {http://arxiv.org/abs/2209.11429},
-  urldate = {2023-02-16},
   abstract = {People rely on news to know what is happening around the world and inform their daily lives. In today's world, when the proliferation of fake news is rampant, having a large-scale and high-quality source of authentic news articles with the published category information is valuable to learning authentic news' Natural Language syntax and semantics. As part of this work, we present a News Category Dataset that contains around 210k news headlines from the year 2012 to 2022 obtained from HuffPost, along with useful metadata to enable various NLP tasks. In this paper, we also produce some novel insights from the dataset and describe various existing and potential applications of our dataset.},
   pubstate = {preprint},
   keywords = {Computer Science - Computation and Language,Read},
@@ -711,7 +649,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/2212.06035},
-  urldate = {2023-02-16},
   abstract = {Past studies in Sarcasm Detection mostly make use of Twitter datasets collected using hashtag-based supervision but such datasets are noisy in terms of labels and language. Furthermore, many tweets are replies to other tweets, and detecting sarcasm in these requires the availability of contextual tweets. To overcome the limitations related to noise in Twitter datasets, we curate News Headlines Dataset from two news websites: TheOnion aims at producing sarcastic versions of current events, whereas HuffPost publishes real news. The dataset contains about 28K headlines out of which 13K are sarcastic. To make it more useful, we have included the source links of the news articles so that more data can be extracted as needed. In this paper, we describe various details about the dataset and potential use cases apart from Sarcasm Detection.},
   pubstate = {preprint},
   keywords = {Computer Science - Computation and Language,Read},
@@ -721,7 +658,6 @@
 @online{NamsorNameChecker,
   title = {Namsor | {{Name}} Checker for {{Gender}}, {{Origin}} and {{Ethnicity}} Determination},
   url = {https://namsor.app/},
-  urldate = {2023-02-23},
   abstract = {Namsor helps you to learn information about the gender, the country of origin and even the ethnicity of a name. Discover the origins of your name right now !},
   langid = {english},
   keywords = {/unread},
@@ -739,7 +675,6 @@
   location = {{Doha, Qatar}},
   doi = {10.3115/v1/D14-1162},
   url = {http://aclweb.org/anthology/D14-1162},
-  urldate = {2023-03-25},
   abstract = {Recent methods for learning vector space representations of words have succeeded in capturing fine-grained semantic and syntactic regularities using vector arithmetic, but the origin of these regularities has remained opaque. We analyze and make explicit the model properties needed for such regularities to emerge in word vectors. The result is a new global logbilinear regression model that combines the advantages of the two major model families in the literature: global matrix factorization and local context window methods. Our model efficiently leverages statistical information by training only on the nonzero elements in a word-word cooccurrence matrix, rather than on the entire sparse matrix or on individual context windows in a large corpus. The model produces a vector space with meaningful substructure, as evidenced by its performance of 75\% on a recent word analogy task. It also outperforms related models on similarity tasks and named entity recognition.},
   eventtitle = {Proceedings of the 2014 {{Conference}} on {{Empirical Methods}} in {{Natural Language Processing}} ({{EMNLP}})},
   langid = {english},
@@ -756,7 +691,6 @@
   eprintclass = {cs},
   doi = {10.48550/arXiv.1802.05365},
   url = {http://arxiv.org/abs/1802.05365},
-  urldate = {2023-03-01},
   abstract = {We introduce a new type of deep contextualized word representation that models both (1) complex characteristics of word use (e.g., syntax and semantics), and (2) how these uses vary across linguistic contexts (i.e., to model polysemy). Our word vectors are learned functions of the internal states of a deep bidirectional language model (biLM), which is pre-trained on a large text corpus. We show that these representations can be easily added to existing models and significantly improve the state of the art across six challenging NLP problems, including question answering, textual entailment and sentiment analysis. We also present an analysis showing that exposing the deep internals of the pre-trained network is crucial, allowing downstream models to mix different types of semi-supervision signals.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Computation and Language},
@@ -771,7 +705,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/1705.00108},
-  urldate = {2023-03-28},
   abstract = {Pre-trained word embeddings learned from unlabeled text have become a standard component of neural network architectures for NLP tasks. However, in most cases, the recurrent network that operates on word-level representations to produce context sensitive representations is trained on relatively little labeled data. In this paper, we demonstrate a general semi-supervised approach for adding pre- trained context embeddings from bidirectional language models to NLP systems and apply it to sequence labeling tasks. We evaluate our model on two standard datasets for named entity recognition (NER) and chunking, and in both cases achieve state of the art results, surpassing previous systems that use other forms of transfer or joint learning with additional labeled data and task specific gazetteers.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Computation and Language},
@@ -786,7 +719,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/1906.01502},
-  urldate = {2023-04-17},
   abstract = {In this paper, we show that Multilingual BERT (M-BERT), released by Devlin et al. (2018) as a single language model pre-trained from monolingual corpora in 104 languages, is surprisingly good at zero-shot cross-lingual model transfer, in which task-specific annotations in one language are used to fine-tune the model for evaluation in another language. To understand why, we present a large number of probing experiments, showing that transfer is possible even to languages in different scripts, that transfer works best between typologically similar languages, that monolingual corpora can train models for code-switching, and that the model can find translation pairs. From these results, we can conclude that M-BERT does create multilingual representations, but that these representations exhibit systematic deficiencies affecting certain language pairs.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Machine Learning},
@@ -801,7 +733,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/2212.00486},
-  urldate = {2023-04-20},
   abstract = {We present Charles University submissions to the WMT22 General Translation Shared Task on Czech-Ukrainian and Ukrainian-Czech machine translation. We present two constrained submissions based on block back-translation and tagged back-translation and experiment with rule-based romanization of Ukrainian. Our results show that the romanization only has a minor effect on the translation quality. Further, we describe Charles Translator, a system that was developed in March 2022 as a response to the migration from Ukraine to the Czech Republic. Compared to our constrained systems, it did not use the romanization and used some proprietary data sources.},
   pubstate = {preprint},
   keywords = {Computer Science - Computation and Language},
@@ -822,19 +753,15 @@
   issn = {1804-0462},
   doi = {10.2478/pralin-2018-0002},
   url = {http://arxiv.org/abs/1804.00247},
-  urldate = {2023-03-01},
   abstract = {This article describes our experiments in neural machine translation using the recent Tensor2Tensor framework and the Transformer sequence-to-sequence model (Vaswani et al., 2017). We examine some of the critical parameters that affect the final translation quality, memory usage, training stability and training time, concluding each experiment with a set of recommendations for fellow researchers. In addition to confirming the general mantra "more data and larger models", we address scaling to multiple GPUs and provide practical tips for improved training regarding batch size, learning rate, warmup steps, maximum sentence length and checkpoint averaging. We hope that our observations will allow others to get better results given their particular hardware and data constraints.},
   keywords = {Computer Science - Computation and Language},
   file = {/home/kydliceh/Zotero/storage/JSPDTGKU/Popel and Bojar - 2018 - Training Tips for the Transformer Model.pdf;/home/kydliceh/Zotero/storage/ZT3ZIRWK/1804.html}
 }
 
-@article{radfordLanguageModelsArea,
-  title = {Language {{Models}} Are {{Unsupervised Multitask Learners}}},
-  author = {Radford, Alec and Wu, Jeffrey and Child, Rewon and Luan, David and Amodei, Dario and Sutskever, Ilya},
-  abstract = {Natural language processing tasks, such as question answering, machine translation, reading comprehension, and summarization, are typically approached with supervised learning on taskspecific datasets. We demonstrate that language models begin to learn these tasks without any explicit supervision when trained on a new dataset of millions of webpages called WebText. When conditioned on a document plus questions, the answers generated by the language model reach 55 F1 on the CoQA dataset - matching or exceeding the performance of 3 out of 4 baseline systems without using the 127,000+ training examples. The capacity of the language model is essential to the success of zero-shot task transfer and increasing it improves performance in a log-linear fashion across tasks. Our largest model, GPT-2, is a 1.5B parameter Transformer that achieves state of the art results on 7 out of 8 tested language modeling datasets in a zero-shot setting but still underfits WebText. Samples from the model reflect these improvements and contain coherent paragraphs of text. These findings suggest a promising path towards building language processing systems which learn to perform tasks from their naturally occurring demonstrations.},
-  langid = {english},
-  keywords = {/unread},
-  file = {/home/kydliceh/Zotero/storage/2WY75B5U/Radford et al. - Language Models are Unsupervised Multitask Learner.pdf}
+@inproceedings{Radford2019LanguageMA,
+  title={Language Models are Unsupervised Multitask Learners},
+  author={Alec Radford and Jeff Wu and Rewon Child and David Luan and Dario Amodei and Ilya Sutskever},
+  year={2019}
 }
 
 @inproceedings{ruderTransferLearningNatural2019,
@@ -847,7 +774,6 @@
   location = {{Minneapolis, Minnesota}},
   doi = {10.18653/v1/N19-5004},
   url = {https://aclanthology.org/N19-5004},
-  urldate = {2023-01-25},
   abstract = {The classic supervised machine learning paradigm is based on learning in isolation, a single predictive model for a task using a single dataset. This approach requires a large number of training examples and performs best for well-defined and narrow tasks. Transfer learning refers to a set of methods that extend this approach by leveraging data from additional domains or tasks to train a model with better generalization properties. Over the last two years, the field of Natural Language Processing (NLP) has witnessed the emergence of several transfer learning methods and architectures which significantly improved upon the state-of-the-art on a wide range of NLP tasks. These improvements together with the wide availability and ease of integration of these methods are reminiscent of the factors that led to the success of pretrained word embeddings and ImageNet pretraining in computer vision, and indicate that these methods will likely become a common tool in the NLP landscape as well as an important research direction. We will present an overview of modern transfer learning methods in NLP, how models are pre-trained, what information the representations they learn capture, and review examples and case studies on how these models can be integrated and adapted in downstream NLP tasks.},
   file = {/home/kydliceh/Zotero/storage/U9HDKXMZ/Ruder et al. - 2019 - Transfer Learning in Natural Language Processing.pdf}
 }
@@ -861,7 +787,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/2012.02110},
-  urldate = {2023-03-31},
   abstract = {Lately, pre-trained language models advanced the field of natural language processing (NLP). The introduction of Bidirectional Encoders for Transformers (BERT) and its optimized version RoBERTa have had significant impact and increased the relevance of pre-trained models. First, research in this field mainly started on English data followed by models trained with multilingual text corpora. However, current research shows that multilingual models are inferior to monolingual models. Currently, no German single language RoBERTa model is yet published, which we introduce in this work (GottBERT). The German portion of the OSCAR data set was used as text corpus. In an evaluation we compare its performance on the two Named Entity Recognition (NER) tasks Conll 2003 and GermEval 2014 as well as on the text classification tasks GermEval 2018 (fine and coarse) and GNAD with existing German single language BERT models and two multilingual ones. GottBERT was pre-trained related to the original RoBERTa model using fairseq. All downstream tasks were trained using hyperparameter presets taken from the benchmark of German BERT. The experiments were setup utilizing FARM. Performance was measured by the \$F\_\{1\}\$ score. GottBERT was successfully pre-trained on a 256 core TPU pod using the RoBERTa BASE architecture. Even without extensive hyper-parameter optimization, in all NER and one text classification task, GottBERT already outperformed all other tested German and multilingual models. In order to support the German NLP field, we publish GottBERT under the AGPLv3 license.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Computation and Language,Computer Science - Machine Learning},
@@ -896,7 +821,6 @@
   issn = {1536-5050},
   doi = {10.5195/jmla.2021.1185},
   url = {https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8485937/},
-  urldate = {2023-02-21},
   abstract = {Objective: To evaluate the performance of gender detection tools that allow the uploading of files (e.g., Excel or CSV files) containing first names, are usable by researchers without advanced computer skills, and are at least partially free of charge. Methods: The study was conducted using four physician datasets (total number of physicians: 6,131; 50.3\% female) from Switzerland, a multilingual country. Four gender detection tools met the inclusion criteria: three partially free (Gender API, NamSor, and genderize.io) and one completely free (Wiki-Gendersort). For each tool, we recorded the number of correct classifications (i.e., correct gender assigned to a name), misclassifications (i.e., wrong gender assigned to a name), and nonclassifications (i.e., no gender assigned). We computed three metrics: the proportion of misclassifications excluding nonclassifications (errorCodedWithoutNA), the proportion of nonclassifications (naCoded), and the proportion of misclassifications and nonclassifications (errorCoded). Results: The proportion of misclassifications was low for all four gender detection tools (errorCodedWithoutNA between 1.5 and 2.2\%). By contrast, the proportion of unrecognized names (naCoded) varied: 0\% for NamSor, 0.3\% for Gender API, 4.5\% for Wiki-Gendersort, and 16.4\% for genderize.io. Using errorCoded, which penalizes both types of error equally, we obtained the following results: Gender API 1.8\%, NamSor 2.0\%, Wiki-Gendersort 6.6\%, and genderize.io 17.7\%. Conclusions: Gender API and NamSor were the most accurate tools. Genderize.io led to a high number of nonclassifications. Wiki-Gendersort may be a good compromise for researchers wishing to use a completely free tool. Other studies would be useful to evaluate the performance of these tools in other populations (e.g., Asian).},
   pmcid = {PMC8485937},
   keywords = {/unread},
@@ -911,7 +835,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/1508.07909},
-  urldate = {2023-03-29},
   abstract = {Neural machine translation (NMT) models typically operate with a fixed vocabulary, but translation is an open-vocabulary problem. Previous work addresses the translation of out-of-vocabulary words by backing off to a dictionary. In this paper, we introduce a simpler and more effective approach, making the NMT model capable of open-vocabulary translation by encoding rare and unknown words as sequences of subword units. This is based on the intuition that various word classes are translatable via smaller units than words, for instance names (via character copying or transliteration), compounds (via compositional translation), and cognates and loanwords (via phonological and morphological transformations). We discuss the suitability of different word segmentation techniques, including simple character n-gram models and a segmentation based on the byte pair encoding compression algorithm, and empirically show that subword models improve over a back-off dictionary baseline for the WMT 15 translation tasks English-German and English-Russian by 1.1 and 1.3 BLEU, respectively.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Computation and Language},
@@ -926,11 +849,24 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/2010.12871},
-  urldate = {2023-03-30},
   abstract = {Large multi-label text classification is a challenging Natural Language Processing (NLP) problem that is concerned with text classification for datasets with thousands of labels. We tackle this problem in the legal domain, where datasets, such as JRC-Acquis and EURLEX57K labeled with the EuroVoc vocabulary were created within the legal information systems of the European Union. The EuroVoc taxonomy includes around 7000 concepts. In this work, we study the performance of various recent transformer-based models in combination with strategies such as generative pretraining, gradual unfreezing and discriminative learning rates in order to reach competitive classification performance, and present new state-of-the-art results of 0.661 (F1) for JRC-Acquis and 0.754 for EURLEX57K. Furthermore, we quantify the impact of individual steps, such as language model fine-tuning or gradual unfreezing in an ablation study, and provide reference dataset splits created with an iterative stratification algorithm.},
   pubstate = {preprint},
   keywords = {Computer Science - Artificial Intelligence,Computer Science - Computation and Language},
   file = {/home/kydliceh/Zotero/storage/R755285A/Shaheen et al. - 2020 - Large Scale Legal Text Classification Using Transf.pdf;/home/kydliceh/Zotero/storage/RAXT3UXQ/2010.html}
+}
+
+@online{sidoCzechNewsDataset2022,
+  title = {Czech {{News Dataset}} for {{Semantic Textual Similarity}}},
+  author = {Sido, Jakub and Seják, Michal and Pražák, Ondřej and Konopík, Miloslav and Moravec, Václav},
+  date = {2022-01-21},
+  eprint = {2108.08708},
+  eprinttype = {arxiv},
+  eprintclass = {cs},
+  url = {http://arxiv.org/abs/2108.08708},
+  abstract = {This paper describes a novel dataset consisting of sentences with semantic similarity annotations. The data originate from the journalistic domain in the Czech language. We describe the process of collecting and annotating the data in detail. The dataset contains 138,556 human annotations divided into train and test sets. In total, 485 journalism students participated in the creation process. To increase the reliability of the test set, we compute the annotation as an average of 9 individual annotations. We evaluate the quality of the dataset by measuring inter and intra annotation annotators' agreements. Beside agreement numbers, we provide detailed statistics of the collected dataset. We conclude our paper with a baseline experiment of building a system for predicting the semantic similarity of sentences. Due to the massive number of training annotations (116 956), the model can perform significantly better than an average annotator (0,92 versus 0,86 of Person's correlation coefficients).},
+  pubstate = {preprint},
+  keywords = {/unread,Computer Science - Artificial Intelligence,Computer Science - Computation and Language,Computer Science - Machine Learning,Computer Science - Neural and Evolutionary Computing},
+  file = {/home/kydliceh/Zotero/storage/SP7GDLXB/Sido et al. - 2022 - Czech News Dataset for Semantic Textual Similarity.pdf;/home/kydliceh/Zotero/storage/XB22BI3I/2108.html}
 }
 
 @online{sidoCzertCzechBERTlike2021,
@@ -941,7 +877,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/2103.13031},
-  urldate = {2023-03-14},
   abstract = {This paper describes the training process of the first Czech monolingual language representation models based on BERT and ALBERT architectures. We pre-train our models on more than 340K of sentences, which is 50 times more than multilingual models that include Czech data. We outperform the multilingual models on 9 out of 11 datasets. In addition, we establish the new state-of-the-art results on nine datasets. At the end, we discuss properties of monolingual and multilingual models based upon our results. We publish all the pre-trained and fine-tuned models freely for the research community.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Computation and Language},
@@ -956,7 +891,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/1506.01186},
-  urldate = {2023-03-13},
   abstract = {It is known that the learning rate is the most important hyper-parameter to tune for training deep neural networks. This paper describes a new method for setting the learning rate, named cyclical learning rates, which practically eliminates the need to experimentally find the best values and schedule for the global learning rates. Instead of monotonically decreasing the learning rate, this method lets the learning rate cyclically vary between reasonable boundary values. Training with cyclical learning rates instead of fixed values achieves improved classification accuracy without a need to tune and often in fewer iterations. This paper also describes a simple way to estimate "reasonable bounds" -- linearly increasing the learning rate of the network for a few epochs. In addition, cyclical learning rates are demonstrated on the CIFAR-10 and CIFAR-100 datasets with ResNets, Stochastic Depth networks, and DenseNets, and the ImageNet dataset with the AlexNet and GoogLeNet architectures. These are practical tools for everyone who trains neural networks.},
   pubstate = {preprint},
   version = {6},
@@ -972,7 +906,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs, stat},
   url = {http://arxiv.org/abs/1711.00489},
-  urldate = {2023-03-28},
   abstract = {It is common practice to decay the learning rate. Here we show one can usually obtain the same learning curve on both training and test sets by instead increasing the batch size during training. This procedure is successful for stochastic gradient descent (SGD), SGD with momentum, Nesterov momentum, and Adam. It reaches equivalent test accuracies after the same number of training epochs, but with fewer parameter updates, leading to greater parallelism and shorter training times. We can further reduce the number of parameter updates by increasing the learning rate \$\textbackslash epsilon\$ and scaling the batch size \$B \textbackslash propto \textbackslash epsilon\$. Finally, one can increase the momentum coefficient \$m\$ and scale \$B \textbackslash propto 1/(1-m)\$, although this tends to slightly reduce the test accuracy. Crucially, our techniques allow us to repurpose existing training schedules for large batch training with no hyper-parameter tuning. We train ResNet-50 on ImageNet to \$76.1\textbackslash\%\$ validation accuracy in under 30 minutes.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Computer Vision and Pattern Recognition,Computer Science - Distributed; Parallel; and Cluster Computing,Computer Science - Machine Learning,Statistics - Machine Learning},
@@ -1008,7 +941,6 @@
   pages = {197--209},
   doi = {10.1007/978-3-030-83527-9_17},
   url = {http://arxiv.org/abs/2105.11314},
-  urldate = {2023-03-28},
   abstract = {We present RobeCzech, a monolingual RoBERTa language representation model trained on Czech data. RoBERTa is a robustly optimized Transformer-based pretraining approach. We show that RobeCzech considerably outperforms equally-sized multilingual and Czech-trained contextualized language representation models, surpasses current state of the art in all five evaluated NLP tasks and reaches state-of-the-art results in four of them. The RobeCzech model is released publicly at https://hdl.handle.net/11234/1-3691 and https://huggingface.co/ufal/robeczech-base.},
   keywords = {Computer Science - Computation and Language},
   file = {/home/kydliceh/Zotero/storage/L3YKIJMP/Straka et al. - 2021 - RobeCzech Czech RoBERTa, a monolingual contextual.pdf;/home/kydliceh/Zotero/storage/ZUIC5AQC/2105.html}
@@ -1023,7 +955,6 @@
   publisher = {{European Language Resources Association (ELRA)}},
   location = {{Miyazaki, Japan}},
   url = {https://aclanthology.org/L18-1551},
-  urldate = {2023-02-16},
   eventtitle = {{{LREC}} 2018},
   file = {/home/kydliceh/Zotero/storage/28AVDLW4/Straka et al. - 2018 - SumeCzech Large Czech News-Based Summarization Da.pdf}
 }
@@ -1046,7 +977,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/1905.05583},
-  urldate = {2023-01-10},
   abstract = {Language model pre-training has proven to be useful in learning universal language representations. As a state-of-the-art language model pre-training model, BERT (Bidirectional Encoder Representations from Transformers) has achieved amazing results in many language understanding tasks. In this paper, we conduct exhaustive experiments to investigate different fine-tuning methods of BERT on text classification task and provide a general solution for BERT fine-tuning. Finally, the proposed solution obtains new state-of-the-art results on eight widely-studied text classification datasets.},
   pubstate = {preprint},
   keywords = {Computer Science - Computation and Language},
@@ -1056,7 +986,6 @@
 @online{UFALAIC,
   title = {{{UFAL AIC}}},
   url = {https://aic.ufal.mff.cuni.cz/index.php/Main_Page},
-  urldate = {2023-02-22},
   keywords = {/unread},
   file = {/home/kydliceh/Zotero/storage/FR7DASTD/Main_Page.html}
 }
@@ -1069,7 +998,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/1706.03762},
-  urldate = {2023-03-01},
   abstract = {The dominant sequence transduction models are based on complex recurrent or convolutional neural networks in an encoder-decoder configuration. The best performing models also connect the encoder and decoder through an attention mechanism. We propose a new simple network architecture, the Transformer, based solely on attention mechanisms, dispensing with recurrence and convolutions entirely. Experiments on two machine translation tasks show these models to be superior in quality while being more parallelizable and requiring significantly less time to train. Our model achieves 28.4 BLEU on the WMT 2014 English-to-German translation task, improving over the existing best results, including ensembles by over 2 BLEU. On the WMT 2014 English-to-French translation task, our model establishes a new single-model state-of-the-art BLEU score of 41.8 after training for 3.5 days on eight GPUs, a small fraction of the training costs of the best models from the literature. We show that the Transformer generalizes well to other tasks by applying it successfully to English constituency parsing both with large and limited training data.},
   pubstate = {preprint},
   keywords = {Computer Science - Computation and Language,Computer Science - Machine Learning},
@@ -1082,7 +1010,6 @@
   date = {2017-09-07T09:43:28},
   doi = {10.31234/osf.io/hv28a},
   url = {https://psyarxiv.com/hv28a/},
-  urldate = {2023-03-29},
   abstract = {We show that faces contain much more information about sexual orientation than can be perceived and interpreted by the human brain. We used deep neural networks to extract features from 35,326 facial images. These features were entered into a logistic regression aimed at classifying sexual orientation. Given a single facial image, a classifier could correctly distinguish between gay and heterosexual men in 81\% of cases, and in 74\% of cases for women. Human judges achieved much lower accuracy: 61\% for men and 54\% for women. The accuracy of the algorithm increased to 91\% and 83\%, respectively, given five facial images per person. Facial features employed by the classifier included both fixed (e.g., nose shape) and transient facial features (e.g., grooming style). Consistent with the prenatal hormone theory of sexual orientation, gay men and women tended to have gender-atypical facial morphology, expression, and grooming styles. Prediction models aimed at gender alone allowed for detecting gay males with 57\% accuracy and gay females with 58\% accuracy. Those findings advance our understanding of the origins of sexual orientation and the limits of human perception. Additionally, given that companies and governments are increasingly using computer vision algorithms to detect people’s intimate traits, our findings expose a threat to the privacy and safety of gay men and women.},
   langid = {american},
   pubstate = {preprint},
@@ -1101,7 +1028,6 @@
   location = {{Brussels, Belgium}},
   doi = {10.18653/v1/W18-5446},
   url = {http://aclweb.org/anthology/W18-5446},
-  urldate = {2023-03-14},
   abstract = {For natural language understanding (NLU) technology to be maximally useful, it must be able to process language in a way that is not exclusive to a single task, genre, or dataset. In pursuit of this objective, we introduce the General Language Understanding Evaluation (GLUE) benchmark, a collection of tools for evaluating the performance of models across a diverse set of existing NLU tasks. By including tasks with limited training data, GLUE is designed to favor and encourage models that share general linguistic knowledge across tasks. GLUE also includes a hand-crafted diagnostic test suite that enables detailed linguistic analysis of models. We evaluate baselines based on current methods for transfer and representation learning and find that multi-task training on all tasks performs better than training a separate model per task. However, the low absolute performance of our best model indicates the need for improved general NLU systems.},
   eventtitle = {Proceedings of the 2018 {{EMNLP Workshop BlackboxNLP}}: {{Analyzing}} and {{Interpreting Neural Networks}} for {{NLP}}},
   langid = {english},
@@ -1117,7 +1043,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/1909.03341},
-  urldate = {2023-04-01},
   abstract = {Almost all existing machine translation models are built on top of character-based vocabularies: characters, subwords or words. Rare characters from noisy text or character-rich languages such as Japanese and Chinese however can unnecessarily take up vocabulary slots and limit its compactness. Representing text at the level of bytes and using the 256 byte set as vocabulary is a potential solution to this issue. High computational cost has however prevented it from being widely deployed or used in practice. In this paper, we investigate byte-level subwords, specifically byte-level BPE (BBPE), which is compacter than character vocabulary and has no out-of-vocabulary tokens, but is more efficient than using pure bytes only is. We claim that contextualizing BBPE embeddings is necessary, which can be implemented by a convolutional or recurrent layer. Our experiments show that BBPE has comparable performance to BPE while its size is only 1/8 of that for BPE. In the multilingual setting, BBPE maximizes vocabulary sharing across many languages and achieves better translation quality. Moreover, we show that BBPE enables transferring models between languages with non-overlapping character sets.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Computation and Language},
@@ -1133,7 +1058,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/1609.08144},
-  urldate = {2023-03-31},
   abstract = {Neural Machine Translation (NMT) is an end-to-end learning approach for automated translation, with the potential to overcome many of the weaknesses of conventional phrase-based translation systems. Unfortunately, NMT systems are known to be computationally expensive both in training and in translation inference. Also, most NMT systems have difficulty with rare words. These issues have hindered NMT's use in practical deployments and services, where both accuracy and speed are essential. In this work, we present GNMT, Google's Neural Machine Translation system, which attempts to address many of these issues. Our model consists of a deep LSTM network with 8 encoder and 8 decoder layers using attention and residual connections. To improve parallelism and therefore decrease training time, our attention mechanism connects the bottom layer of the decoder to the top layer of the encoder. To accelerate the final translation speed, we employ low-precision arithmetic during inference computations. To improve handling of rare words, we divide words into a limited set of common sub-word units ("wordpieces") for both input and output. This method provides a good balance between the flexibility of "character"-delimited models and the efficiency of "word"-delimited models, naturally handles translation of rare words, and ultimately improves the overall accuracy of the system. Our beam search technique employs a length-normalization procedure and uses a coverage penalty, which encourages generation of an output sentence that is most likely to cover all the words in the source sentence. On the WMT'14 English-to-French and English-to-German benchmarks, GNMT achieves competitive results to state-of-the-art. Using a human side-by-side evaluation on a set of isolated simple sentences, it reduces translation errors by an average of 60\% compared to Google's phrase-based production system.},
   pubstate = {preprint},
   version = {2},
@@ -1162,7 +1086,6 @@
   location = {{Online}},
   doi = {10.18653/v1/2020.acl-main.331},
   url = {https://aclanthology.org/2020.acl-main.331},
-  urldate = {2023-02-16},
   abstract = {News recommendation is an important technique for personalized news service. Compared with product and movie recommendations which have been comprehensively studied, the research on news recommendation is much more limited, mainly due to the lack of a high-quality benchmark dataset. In this paper, we present a large-scale dataset named MIND for news recommendation. Constructed from the user click logs of Microsoft News, MIND contains 1 million users and more than 160k English news articles, each of which has rich textual content such as title, abstract and body. We demonstrate MIND a good testbed for news recommendation through a comparative study of several state-of-the-art news recommendation methods which are originally developed on different proprietary datasets. Our results show the performance of news recommendation highly relies on the quality of news content understanding and user interest modeling. Many natural language processing techniques such as effective text representation methods and pre-trained language models can effectively improve the performance of news recommendation. The MIND dataset will be available at https://msnews.github.io.},
   eventtitle = {{{ACL}} 2020},
   file = {/home/kydliceh/Zotero/storage/K6FSKJ2Q/Wu et al. - 2020 - MIND A Large-scale Dataset for News Recommendatio.pdf}
@@ -1186,7 +1109,6 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/1502.01710},
-  urldate = {2023-03-14},
   abstract = {This article demontrates that we can apply deep learning to text understanding from character-level inputs all the way up to abstract text concepts, using temporal convolutional networks (ConvNets). We apply ConvNets to various large-scale datasets, including ontology classification, sentiment analysis, and text categorization. We show that temporal ConvNets can achieve astonishing performance without the knowledge of words, phrases, sentences and any other syntactic or semantic structures with regards to a human language. Evidence shows that our models can work for both English and Chinese.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Computation and Language,Computer Science - Machine Learning},
@@ -1201,13 +1123,14 @@
   eprinttype = {arxiv},
   eprintclass = {cs},
   url = {http://arxiv.org/abs/2302.01107},
-  urldate = {2023-02-17},
   abstract = {Recent advances in Transformers have come with a huge requirement on computing resources, highlighting the importance of developing efficient training techniques to make Transformer training faster, at lower cost, and to higher accuracy by the efficient use of computation and memory resources. This survey provides the first systematic overview of the efficient training of Transformers, covering the recent progress in acceleration arithmetic and hardware, with a focus on the former. We analyze and compare methods that save computation and memory costs for intermediate tensors during training, together with techniques on hardware/algorithm co-design. We finally discuss challenges and promising areas for future research.},
   pubstate = {preprint},
   keywords = {/unread,Computer Science - Artificial Intelligence,Computer Science - Computer Vision and Pattern Recognition,Computer Science - Machine Learning},
   file = {/home/kydliceh/Zotero/storage/P7JBCFRI/Zhuang et al. - 2023 - A Survey on Efficient Training of Transformers.pdf;/home/kydliceh/Zotero/storage/DSC9XXRY/2302.html}
 }
 
-@book{zotero-355,
-  keywords = {/unread}
+@inproceedings{Radford2018ImprovingLU,
+  title={Improving Language Understanding by Generative Pre-Training},
+  author={Alec Radford and Karthik Narasimhan},
+  year={2018}
 }

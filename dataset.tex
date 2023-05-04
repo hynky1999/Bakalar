@@ -1,108 +1,37 @@
-\chapter{Dataset}
-\label{chap:math}
-We first had to find a suitable dataset to evaluate the scientific question.
-We needed a news dataset that would suffice these requirements:
-\begin{itemize}
-    \item Contains content of the article for each sample.
-    \item Partially contains category, authors, publication date and a publishing server.
-    \item Size of at least 200k samples.
-    \item Czech language.
-\end{itemize}
-The closest to our requirements we found were:
-\begin{itemize}
-    \item \parencite{strakaSumeCzechLargeCzech2018a} - 1M Czech news articles.
+\chapter{Czech News Classification dataset}
+\label{chap:dataset}
+\acf{Czenec} is compiled from news stories published online in major Czech media
+outlets between January 2000 and August 2022. The news article content is
+protected by copyright law; therefore, we cannot distribute the dataset directly.
+Instead, we release a script\footnote{\url{https://github.com/hynky1999/Czech-News-Classification-dataset}} for
+dataset collection.
 
-          While sufficiently large and in the correct language,
-          it contains neither category nor author metadata.
-          However, the paper provides valuable information about dataset extraction
-          and cleaning of the dataset.
-    \item \parencite{misraNewsCategoryDataset2022} - 210k English news articles.
-
-          While it contains both category and author metadata,
-          the language is English and the dataset doesn't
-          have the content of the articles.
-\end{itemize}
-As neither dataset suited our needs, we created a new dataset.
-
-\section{Dataset creation}
+\section{Dataset Creation Process}
 \label{sec:dataset-creation}
 
 \subsection{Data source}
-We initially decided to collect the data from these news servers:
-\begin{itemize}
-    \item SeznamZprávy.cz
-    \item iRozhlas.cz
-    \item Novinky.cz
-    \item Deník.cz
-    \item iDnes.cz
-    \item Aktuálně.cz
-    \item iHNed.cz
-\end{itemize}
-We chose these sources due to their popularity and high amount of articles.
-To get articles, we had two options:
-\begin{enumerate}
-    \item Use a web spider to crawl the live website.
-    \item Use a web archive that contains crawled articles.
-\end{enumerate}
-We chose the second option because crawling live websites is tricky,
-as the servers would be too fast to block the crawler, due to too many requests. Another advantage of the second approach is that we may not be able to get as many articles as
-with a web crawler, since there might be no links to old articles anymore.
+We collected the data from the following news servers: 
+\textit{SeznamZprávy.cz}, \textit{Novinky.cz}, \textit{Deník.cz},
+\textit{iDnes.cz}, \textit{Aktuálně.cz}, \textit{iHNed.cz} and \textit{iRozhlas.cz}.
 
-\subsection{Webarchive}
-As a web archive, we chose a \ac{cc}~\footnote{\url{https://commoncrawl.org/}}.
-\ac{cc} is an open-source project crawling the web and storing the data.
-The data are stored as a WARC\footnote{\url{https://www.iso.org/obp/ui/\#iso:std:iso:28500:ed-2:v1:en}} files in \ac{s3}.
-The data can be queried using Amazon's big data tools or \ac{cc} API.
-\ac{cc} data has been collected since 2008 with various frequencies,
-since 2014 they have been collected monthly.
-
-\subsection{Data extraction}
-\subsubsection{CC Extractor}
-To extract the data, we developed a utility \textbf{\ac{cmc}} that can extract the data from a \ac{cc}
-based on the URL, crawl date, etc\dots. \ac{cmc} was
-created, strongly emphasizing scalability and reliability, as a huge amount of data
-was required to be processed.
-
-It's separated into two parts:
-\begin{enumerate}
-    \item \ac{cag} -
-          Extracts links from \ac{cc} API for specified URLs and sends them to a Processor.
-    \item \ac{cap} -
-          Loads the WARC data from \ac{s3} and extracts the requested metadata.
-          We used Python's beautifulsoup\footnote{\url{https://pypi.org/project/beautifulsoup4/}} library for extraction.
-\end{enumerate}
-Both of them can be scaled based on the needs.
-The connection between the \ac{cag} and \ac{cap} can be made using various middlewares.
-We used ActiveMQ Artemis~\footnote{\url{https://activemq.apache.org/components/artemis}} for our purposes.
-When the \ac{cag} send links to \ac{cap},
-they are filtered for uniqueness based on the normalized version(URL without query, deduplicated '\verb|/|' etc\dots).
-\subsubsection{Extraction}
-We have done extraction on 12.12.2022 on \ac{aic}\footnote{\url{https://aic.ufal.mff.cuni.cz}}.
-We set the \ac{cmc} to only output articles in which \ac{cap} successfully
-extracted the content and headline.
-We set \ac{cmc} to aggregate crawls from 1.1.2008 to 31.8.2022\footnote{
-    We limited the choice of crawls. Those crawls contain articles older than 2008,
-    which is why the date range of the dataset is bigger.}.
-We run one \ac{cag} and four \acp{cap} for each server,
-totaling 7 \acp{cag} and 28 \acp{cap}.
-As for orchestration, while \ac{cmc} has working docker support,
-the cluster doesn't support it, thus we used shell scripts for deployment.
-The 49.2M URLs were aggregated, of which 3.2M were successfully extracted.
-
-Once we extracted the data, we started with filtering and postprocessing.
+We used Common Crawl\footnote{\url{https://commoncrawl.org/}} as a data source,
+as crawling live websites would be infeasible.
+For extraction, we developed a custom tool \textit{C'monCrawl}\footnote{\url{https://github.com/hynky1999/CmonCrawl}},
+which allows end-to-end extraction of Common Crawl data. We then deployed it in distributed
+setting on \ac{aic}\footnote{\url{https://aic.ufal.mff.cuni.cz/}},
+processed 49.2M URLs and extracted 3.2M articles.
 \subsection{Filtering}
 
 Filtering was done in several steps. We employed \ac{hf} datasets\footnote{\url{https://huggingface.co/docs/datasets/index}}
 library, as it allows for parallel processing of the data.
 This allowed us to filter the data in a few hours on a single machine.
 
-
-\subsection{iHNed.cz articles}
+\subsubsection{iHNed.cz articles}
 Similar to~\textcite{strakaSumeCzechLargeCzech2018a}, we found that the iHNed.cz articles contained
 a high number of paywalled articles and overall contained few samples.
-We thus decided to drop it.
+We thus decided to remove all articles by iHNed.cz.
 
-\subsection{Czech filtering}
+\subsubsection{Czech filtering}
 Since we were interested in Czech articles, we decided to filter out articles
 not in the Czech language. For this purpose,
 we used FastText Language detection model~\parencites{joulinFastTextZipCompressing2016}{joulinBagTricksEfficient2016}.
@@ -111,7 +40,7 @@ This allowed us to interpret fractions of lines predicted as Czech as the confid
 We inspected the articles with lower confidence and the most occurring problems were:
 \begin{enumerate}
     \item Articles in Ukraine language on SeznamZprávy.cz, due to the recent war in Ukraine.
-    \item Articles with a list of sports results, where most texts were.
+    \item Articles with a list of sports results, where most texts were:
           the result, team and match highlights.
     \item Articles with comparison tables, e.g., mobile comparison.
     \item Galeries; there were few articles with galleries of pictures or videos with little text.
@@ -119,62 +48,26 @@ We inspected the articles with lower confidence and the most occurring problems 
 \end{enumerate}
 Since we had many articles, we decided to filter out articles with a confidence lower than 1.0.
 
-\subsubsection{Filtering by Article Statistics}
+\subsubsection{Removing wrongly parsed articles}
 \label{sec:filtering-by-article-statistics}
-The main goal of this step was to filter out either wrongly parsed
-or non-news articles (plain sports results, weather, tables, videos/photos\dots).
-We inspected article content based on several properties
-and set the following thresholds to remove unwanted articles:
+To remove wrongly parsed articles, we only kept the ones with the following properties:
+content length of at least 400 characters, headline length
+of at least 20 characters, and a brief length of at least 40 characters.
+To exclude non-textual content, we only kept articles with the following properties:
 \begin{enumerate}
-    \item General:
-          \begin{enumerate}
-              \item Content length - $(400, \inf)$
-              \item Headline length - $(20, \inf)$
-              \item Brief length - $(40, \inf)$
-              \item Publication date - $(1.1.2000, 31.8.2022)$
-          \end{enumerate}
-    \item Content:
-          \begin{enumerate}
-              \item Average word length - $(4.0, \inf)$
-              \item Num of words / Lenght - $(0.11, 0.22)$
-              \item Non-alphanumeric characters / Length - $(0, 0.045)$
-          \end{enumerate}
+    \item The average word length is at least 4
+    \item The number of words per total article length in characters is in the interval
+(0.11, 0.22)
+    \item The ratio of non-alphanumeric characters is at most 4.5\% per length
+(0, 0.045)
 \end{enumerate}
 
-During the inspection, we further found the following problems:
-\begin{enumerate}
-    \item Headline cuts
-
-          When observing articles with short headlines, we found that the headlines
-          were cut in the middle of words.
-          It was because the extractor had a function that would remove anything after '\verb|-|'.
-          In headlines, it was supposed to prevent the bloat like '\verb|- Aktuálně.cz|'. However,
-          we didn't anticipate this would also remove words like start-up, n‑tice, etc\dots.
-          We removed this rule and reran the whole extraction.
-    \item Content character length
-
-          Observing content length at Novinky.cz and SeznamZprávy.cz, we found many articles with content of fewer than 100 characters, due to an extraction error.
-          For these two sites, we were extracting content by CSS classes.
-          However, we didn't include all possible classes, as they are likely autogenerated;
-          thus, sometimes extractor extracted only headers.
-          We tried to fix the problems by adding more classes and generalizing the CSS selectors,
-          reducing the issue but not eradicating it. We thus decided to resolve this problem
-          by the content length rule.
-
-    \item Headline length drops
-
-          When inspecting Aktuálně.cz, we found that the article counts peaked
-          at certain headline lengths (55, 60, 85), followed by a steep drop in numbers.
-          However, we haven't found any problems with such headlines.
-          We assume these inconveniences result from internal rules for writers at Aktuálně.cz.
-\end{enumerate}
-
-\subsubsection{filtering by headline content}
+\subsubsection{Filtering by headline content}
 As in \textcite{strakaSumeCzechLargeCzech2018a}, many articles
 contained prefixes at headlines like '\verb|VIDEO: |', '\verb|FOTO: |', '\verb|GALERIE: |' etc\dots.
 Since we were interested in the articles and not galleries,
 we dropped the articles with prefixes that indicate non-news content.
-However, unlike \textcite{strakaSumeCzechLargeCzech2018a}, we haven't removed these prefixes
+However, unlike \textcite{strakaSumeCzechLargeCzech2018a}, we didn't remove these prefixes
 in non-filtered headlines/briefs.
 
 
@@ -221,126 +114,147 @@ We employed heuristics and manual filtering
 to mitigate these problems and ended up with 11K authors.
 As for postprocessing, we removed occupation and academic titles.
 
-\subsubsection{Gender and cumulative gender}
+\subsubsection{Gender}
 \label{sec:gender}
-To infer the gender of the author's name, we used Namsor \footnote{\url{https://namsor.app/}}
-as suggested by \textcite{seboPerformanceGenderDetection}.
-For cumulative gender, we used the following rules:
-\begin{enumerate}
-    \item If all authors of the article are Man $\rightarrow$ Man.
-    \item If all authors of the article are Woman $\rightarrow$ Woman.
-    \item Mixed otherwise.
-\end{enumerate}
+To infer the gender of the author's name, we used Namsor \footnote{\url{https://namsor.app/}}.
+If the article contained more than one author, we chose the homogeneous gender if
+possible. Otherwise, we labeled the Gender as Mixed
 
-\subsubsection{Content, Brief, Headline Postprocessing}
-We used the following postprocessing steps for content, brief and headline:
-\begin{enumerate}
-    \item Replace '\verb|\n|,\verb|\r|,\verb|\t|' with spaces
-    \item Truncate spaces
-    \item Convert named and numeric character references to Unicode
-    \item Normalize Unicode characters to their base combined form
-\end{enumerate}
-As for Brief and Headline, we capitalized the first letter
-and added a dot at the end if there wasn't one.
+\subsubsection{Postprocessing}
+Lastly, we applied common postprocessing steps including Unicode and HTML normalization and formatting adjustments
+to content, brief and headline.
+
 
 \subsection{Splits}
 \label{sec:splits}
-Since we were interested in predicting the future,
-we decided to split the data into train, validation and test set based on the publication date.
-The sets are, therefore, not random but ordered by publication date. Train set having the earliest, while test the latest articles.
-If the sample didn't have a publication date, we randomly assigned it to one of the sets.
-We selected the ratio between splits to \textbf{85:7.5:7.5}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{img/dataset_evolution/evolution.pdf}
+    \caption{Distribution of news servers over time with dataset split boundaries.}
+    \label{fig:evolution}
+\end{figure}
+We divided the dataset into the train, validation, and test sets based on
+publication date, using a 34:3:3 ratio. The sets are ordered by publication date, i.e., the train set contains the earliest articles, while the test set contains the latest articles.
+The dataset division is depicted in \autoref{fig:evolution}.
+
 Due to experiments, we also additionally created the following splits:
 \begin{enumerate}
     \item\label{enum:train-small} \textbf{Train Small} - 50K most recent samples from the training set, containing all metadata
     \item\label{enum:test-small} \textbf{Test Small} - 10K randomly selected samples from the test set, containing all metadata
-    \item\label{enum:test-human} \textbf{Test Human} - 100 randomly selected samples from test set, containing all metadata
+    \item\label{enum:test-human} \textbf{Test Human} - 100 randomly selected samples from the test set, containing all metadata
 \end{enumerate}
 
-\section{Dataset summary}
-\begin{table}[H]
+\section{Dataset Summary}
+\begin{table}[t]
     \resizebox{\linewidth}{!}{%
-        \centering\footnotesize\sf
+        \caption{Dataset summary. Article words were calculated based
+            on Moses tokenization.}
+        \label{tab:dataset_summary}
+        \centering
         \begin{tabular}{lrrrrr}
             \toprule
-            {}          & Size    & Unique Authors & Categories & Date Range            & Article words \\
+            Server          & Size    & Authors & Categories & Start date            & Words per article \\
             \midrule
-            Deník.cz   & 664133  & 2497           & 18         & 27.3.2007 - 6.8.2022  & 332           \\
-            Novinky.cz   & 321417  & 2518           & 17         & 20.12.2002 - 6.8.2022 & 274           \\
-            iDnes.cz & 295840  & 4385           & 21         & 3.1.2000 - 9.8.2022   & 423           \\
-            iRozhlas.cz   & 167588  & 1900           & 8          & 8.7.2000 - 25.6.2022  & 287           \\
-            Aktuálně.cz   & 112960  & 633            & 19         & 26.10.2005 - 6.8.2022 & 468           \\
-            SeznamZprávy.cz   & 65472   & 382            & 11         & 14.9.2016 - 6.8.2022  & 443           \\
+            Deník.cz   & \hphantom{1,}664,133  & \hphantom{1}2,497           & 18         & 2007  & 332           \\
+            Novinky.cz   & \hphantom{1,}321,417  & \hphantom{1}2,518           & 17         & 2002 & 274           \\
+            iDnes.cz & \hphantom{1,}295,840  & \hphantom{1}4,386           & 21         & 2000   & 423           \\
+            iRozhlas.cz   & \hphantom{1,}167,588  & \hphantom{1}1,900           & 8          & 2000  & 287           \\
+            Aktuálně.cz   & \hphantom{1,}112,960  & \hphantom{10,}633            & 19         & 2005 & 468           \\
+            SeznamZprávy.cz~~~ & \hphantom{1,0}65,472   & \hphantom{10,}382            & 11         & 2016  & 443           \\
             \midrule
-            Total       & 1627410 & 10930          & 25         & 3.1.2000 - 9.8.2022   & 362           \\
+            Total       & 1,627,410 & 10,930          & 25         & 2000   & 362           \\
             \bottomrule
+            \\
         \end{tabular}
-        \caption{Dataset summary. Article words were calculated based
-            on Moses tokenization}
-        \label{tab:dataset_summary}
     }
 \end{table}
 The summarization of the dataset is shown in~\autoref{tab:dataset_summary}.
 The dataset contains the following features:
 \begin{itemize}
-    \item \textbf{Content} - Article content
-    \item \textbf{Brief} - Brief/Perex of the article
-    \item \textbf{Headline} - Headline/Title of the article
-    \item \textbf{Category} - Both post-processed and original category
-    \item \textbf{Published Date} - Date of publication and inferred day of week
-    \item \textbf{Authors} - Authors, with their textual gender and cumulative gender
-    \item \textbf{Keywords} - Extracted keywords from the article
-    \item \textbf{Comments Count} - Number of comments in discussion section
+    \item \emph{Server} - Server that published the article
+    \item \emph{Content} - Actual text content of the article
+    \item \emph{Brief} - Brief/Perex of the article
+    \item \emph{Headline} - Headline/Title of the article
+    \item \emph{Category} - Both post-processed and original category
+    \item \emph{Published Date} - Date of publication and inferred day of week
+    \item \emph{Authors} - List of article authors
+    \item \emph{Inferred gender} - Inferred gender of author(s) name(s)
+    \item \emph{Keywords} - Extracted keywords from the article
+    \item \emph{Comments Count} - Number of comments in the discussion section
 \end{itemize}
-We further provide a more detailed description of each task in the following sections.
-\todo{add numbers}
+
+\section{Task Definitions}\label{sec:task_definition}
+\begin{table}[h]
+        \caption{Tasks distribution over sets.}
+        \label{tab:task_distribution}
+        \centering
+        \begin{tabular}{lrrrr}
+        \toprule
+        Set &   Server &  Category &  Gender &  Day of week \\
+        \midrule
+        Train      &  1,383,298 &             \hphantom{1,}879,019 & \hphantom{1,}919,840 &      1,383,298 \\
+        Validation &  \hphantom{1,}122,056 &  \hphantom{1,0}78,084 & \hphantom{1,0}82,936 & \hphantom{1,}122,056 \\
+        Test       &  \hphantom{1,}122,056 &  \hphantom{1,0}82,352 & \hphantom{1,0}83,269 & \hphantom{1,}122,056 \\
+        \midrule
+        Total   &   1,627,410 &  1,039,455 &           1,086,045 &    1,627,410  \\
+        \bottomrule
+        \end{tabular}
+\end{table}
+We provide more details about the tasks in this section.
+Each task is provided an article body as input, excluding the brief and headline.
+As not all metadata are available for all articles, we show the distribution of samples over sets
+in~\autoref{tab:task_distribution}.
+
 
 \subsection{Server}
 \label{sec:server-desc}
-\begin{figure}[H]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=1.0\textwidth]{img/tasks_graph/server.pdf}
-    \caption{Graph depicting proportion of servers among the datasets}
+    \caption{Graph depicting proportion of servers among the datasets.}
     \label{fig:server_graph}
 \end{figure}
-From~\autoref{fig:server_graph}, we can see that the most frequent server is Deník.cz.
-That is due to regional coverage not being present on the other servers. We can also see
-a shallow representation of the SeznamZprávy.cz in the training set.
-This occurs because the server was launched the latest, among others, in 2016.
-The extinction of Novinky.cz in the test and validation set is likely explained by \autoref{sec:filtering-by-article-statistics}.
-We can also observe higher proportions of iDnes.cz in subsamples of the test set.
-That is because iDnes.cz contains all metadata more often than the other servers.
-\todo{CHECK THIS I Assumed it}
+The Server classification task involves predicting the publishing server
+of articles from a set of 6 labels, as shown in~\autoref{fig:server_graph}. It is important to note
+that there is a significant distribution shift between the training and validation
+set, which is caused by differences in the launch dates of the servers and parsing
+issues (especially with Novinky.cz)
 
 
 \subsection{Category}
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width=1.0\textwidth]{img/tasks_graph/category.pdf}
-    \caption{Graph depicting distribution categories among the datasets}
+    \caption{Graph depicting distribution categories among the datasets.}
     \label{fig:category_graph}
 \end{figure}
-As seen in~\autoref{fig:category_graph}, Home is the most frequent category.
-We know it might overlap with other categories like Economy, but we decided to keep it separate.
-We didn't wan to drop home as it contains most of the political articles.
-
-\subsection{Day of the Week}
-\begin{figure}[h]
-    \centering
-    \includegraphics[width=1.0\textwidth]{img/tasks_graph/day_of_week.pdf}
-    \caption{Graph depicting the distribution of weekdays among the datasets}
-    \label{fig:day_graph}
-\end{figure}
-The days of the week are evenly distributed among the datasets, as seen in~\autoref{fig:day_graph}.
-We can see more articles published on weekdays than on weekends.
+The Category classification task requires predicting the category of
+an article from a set of 25 labels, as depicted in~\autoref{fig:category_graph}. When selecting the
+categories, we carefully identify the most frequent ones while striving to maintain
+diversity and minimize any potential overlap between them.
 
 \subsection{Gender}
 \begin{figure}[h]
     \centering
     \includegraphics[width=1.0\textwidth]{img/tasks_graph/authors_cum_gender.pdf}
-    \caption{Graph depicting the distribution of genders among the datasets}
+    \caption{Graph depicting the distribution of genders among the datasets.}
     \label{fig:gender_graph}
 \end{figure}
-For the Gender task, we use cumulative gender as described in~\autoref{sec:gender}.
-We were surprised that the genders are skewed towards men (around $60\%$) as seen in~\autoref{fig:gender_graph}.
-It might be due to Namsor misclassifying female names as male names or there might be a prevalence of male names in the Czech media.
+This classification task has 3 labels, as shown in~\autoref{fig:gender_graph}.
+Its goal is to predict the inferred gender of the article author(s). While we are aware
+that the inferred gender is not always correct, we think that it serves as a good proxy predicted, due to the strong
+association of social and grammatical gender in the Czech language.
+This task is not meant to label individuals and the text they produce, and we discourage future users of CZE-NEC from doing so.
+
+\subsection{Day of the Week}
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=1.0\textwidth]{img/tasks_graph/day_of_week.pdf}
+    \caption{Graph depicting the distribution of weekdays among the datasets.}
+    \label{fig:day_graph}
+\end{figure}
+The Day of Week task is a classification challenge consisting of seven distinct labels, as illustrated in~\autoref{fig:day_graph}.
+The objective is to
+accurately predict the day of the week a given article was published. Given the
+absence of any apparent approaches to tackle this task, we deem it to be the
+most challenging among the tasks considered.

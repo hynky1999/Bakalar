@@ -1,16 +1,24 @@
 \chapwithtoc{Conclusion}
 \section{Our Contribution}
-In this work, we proposed an extensive dataset \textbf{Czech News} dataset with a large amount of metadata,
-created with our \textbf{C'monCrawl} utility. We have then evaluated mostly
-transformer fine-tuning approaches
-and created a strong baseline for all 4 tasks. We found all our models
-beating the human baseline on all tasks, with the biggest difference of 44\% on the Server task.
-Lastly, we have in-depth analyzed the performance of the models on the tasks
-and showed their weaknesses.
+In this work, we proposed \textbf{CZE-NEC}, an extensive dataset with a large amount of metadata,
+created with our \textbf{C'monCrawl} utility. We then trained and evaluated
+several \ac{ml} models, showing that additional textual dependencies greatly
+improve the performance on the tasks compared to simple keyword extraction.
 
-Due to copyright issues, we can't redistribute the dataset, but we offer a instructions
-for manual download~(\autoref{chap:download}).
-We also open-source the code for C'monCrawl\footnote{\url{https://github.com/hynky1999/Rocnikovy-Projekt}}.
+Additionally, we tested a few fine-tuning enhancements of pre-trained transformers,
+among others revealing that \ac{gu} worsens the performance of the models, contrary to findings of 
+\textcite{howardUniversalLanguageModel2018a} and that combination of \ac{flm} and
+recency sampling can further improve the performance of the pre-trained transformers
+on our tasks.
+
+We also compared the performance of the pre-trained Czech transformers, to the commercial
+multi-lingual model GPT-3, showing that the Czech models can still beat the significantly
+larger \ac{llm} on some tasks.
+
+Lastly, we observed our best models perform significantly better than humans on all tasks.
+
+We open-source the code for C'monCrawl\footnote{\url{https://github.com/hynky1999/CmonCrawl}}.
+Due to copyright issues, we can't redistribute the dataset, but we offer a script for data collection~\footnote{\url{https://github.com/hynky1999/Czech-News-Classification-dataset}}.
 Furthermore, we share all of our final models at \ac{hf} hub.
 \begin{itemize}
     \item \textbf{Server}: \url{https://huggingface.co/hynky/Server}
@@ -18,22 +26,22 @@ Furthermore, we share all of our final models at \ac{hf} hub.
     \item \textbf{Gender}: \url{https://huggingface.co/hynky/Gender}
     \item \textbf{Day of week}: \url{https://huggingface.co/hynky/Day_of_week}
 \end{itemize}
-We also create a user-friendly application~(see \autoref{chap:gradio-app})
-for all of the tasks.
+We also created a user-friendly application~(see \autoref{chap:gradio-app}),
+combining all models into a single interface.
 
 \section{Future Work}
-When it comes to the dataset itself we have discussed the problematic crawling of 
+When it comes to the dataset itself, we have discussed the problematic crawling of 
 Novinky.cz~(\autoref{sec:server-desc}). We have also
-pointed out the category task fallbacks~(\autoref{sec:final-model-performance-on-category}).
-which could be improved. Lastly, novel news server additions to the dataset would be 
-welcome.
+pointed out the Category task fallbacks~(\autoref{sec:final-model-performance-on-category}),
+which could be improved.
 
-When it comes to tasks themselves, we haven't dealt with transformers issues as 
+When it comes to tasks themselves, we haven't dealt with transformers' memory issues as 
 aligned in \autoref{sec:benefits-and-drawbacks}. We thus encourage researches
 to apply memory-efficient transformers to the tasks. Further, it would be 
 interesting to include more features when classifying.
-Lastly due to the extensiveness of the dataset, other Classification or Regression tasks
-could be researched, for example, the Number of comments in discussion section.
+
+Lastly, due to the extensiveness of the dataset, other Classification or Regression tasks
+could be researched i.e. predicting the number of comments in the discussion section.
 
 
 

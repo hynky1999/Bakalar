@@ -12,46 +12,53 @@ We thus ask ourselves the following question:
     \textit{Which and how much implicit information can be extracted from the news articles?}
 \end{quote}
 
-As there could be an infinite amount of such fingerprints, we decided to narrow the scope of our research to only:
+As there could be an infinite amount of such fingerprints, we narrow the scope of our research to the following tasks:
 \begin{enumerate}
     \item Article publishing server
-    \item The category of the article
-    \item Inferred gender of article author's name
+    \item Article category
+    \item Author's textual gender
     \item Publication day of week
 \end{enumerate}
-We also had to narrow the domain of our research to news articles written in Czech.
+Furthermore, we limit the scope of the research to the Czech language.
 
+For simplicity, we will further refer
+to \textit{Article publishing server} as \textbf{Server},
+to \textit{Article category} as \textbf{Category},
+to \textit{Author's textual gender} as \textbf{Gender}\footnote{Note that we by no means are referring to the author's actual gender},
+and to \textit{Publication day of week} as \textbf{Day Of Week}
 
 
 \section*{Related Work}
 With the rise of \ac{nlp} and \ac{ml},
-there has been a lot of research on implicit information in textual content.
-In particular, sentiment analysis and text classification have been researched by many.
-Most notably, \textcite{joulinBagTricksEfficient2016} showed that a simple \acl{bow} approach
-with a few hidden layers could achieve \ac{sota} results, while being very fast.
+there has been a lot of research on implicit information in textual content, most notably on sentiment analysis
+and text classification. Most notably, \textcite{joulinBagTricksEfficient2016} showed that a simple \acl{bow} approach
+with a few hidden layers could achieve \ac{sota} results while being very fast.
 \textcite{zhangTextUnderstandingScratch2016}, inspired by the usage of \acp{cnn} in image classification,
 proposed a similar approach for text classification with excellent results.
 
-In recent years, \ac{sota} has been achieved by the transformer models~\parencite[see][]{vaswaniAttentionAllYou2017d}.
-Such an approach was used by \textcite{devlinBERTPretrainingDeep2019a}, where the authors achieved \ac{sota} results on
+In recent years, \ac{sota} results have been achieved by the transformer models~\parencite{vaswaniAttentionAllYou2017d}.
+Such an architecture was used by BERT~\parencite{devlinBERTPretrainingDeep2019a}, where the authors achieved \ac{sota} results on
 all the tasks of GLUE benchmark~\parencite{wangGLUEMultiTaskBenchmark2018}, which among others, includes 
-sentiment analysis task. Inspired by these results, \textcite{sunHowFineTuneBERT2020} further investigated possibilities
-of fine-tuning BERT, creating eight \ac{sota} results on text classification tasks.
+sentiment analysis task.
+
+To cope with BERT English mono-lingual training, \textcite{strakaRobeCzechCzechRoBERTa2021}, followed by \textcite{leheckaComparisonCzechTransformers2021},
+proposed Czech versions of BERT, called RobeCzech and Fernet-News, respectively.
+
 
 \section*{Our approach}
-As no dataset with needed labels exists, we created one of the most extensive datasets of Czech news articles
-containing more than 1.5 million articles with a large amount of metadata.
-To test human ability on the tasks, we took a subset of the dataset and tested human performance.
+We evaluate the defined tasks on CZEch NEws Classification dataset (CZE-NEC), 
+the large dataset of Czech news articles of over 1.6 million articles, described in \autoref{chap:dataset}.
+To assess human ability on the tasks, we take a subset of the dataset and ask humans to perform the tasks
+~(\autoref{sec:human}).
 
-As for machine learning models, we created baseline models using the \acl{bow} approach with \acl{mlr}.
-For \ac{dl} models, we fine-tuned the \textit{RobeCzech}~\parencite{strakaRobeCzechCzechRoBERTa2021}
-and the \textit{Fernet-News}~\parencite{leheckaComparisonCzechTransformers2021}. 
-We have also used GPT-3 \parencite{brownLanguageModelsAre2020b} to test its multi-lingual capabilities.
+We continue by training a \acl{mlr} model with \acl{bow} features to establish a keyword extraction performance (\autoref{sec:baseline-exp}).
+Next, we fine-tune \ac{dl} models,
+specifically the RobeCzech~\parencite{strakaRobeCzechCzechRoBERTa2021}
+and Fernet-News~\parencite{leheckaComparisonCzechTransformers2021} models,
+using various approaches to enhance their performance (\autoref{sec:finetuning}).
 
-\section*{Structure of the thesis}
-We start with the introduction to text classification, then provide reader with the necessary background knowledge
-to understand the models we will use. We proceed to describe dataset creation and its properties.
-Next, we describe the experiments we conducted and their results. Finally, we conclude with a summary of our findings.
+Lastly, we explore the multi-lingual capabilities of the commercial Large Language Model GPT-3~\parencite{brownLanguageModelsAre2020b}
+by fine-tuning it on CZE-NEC (\autoref{sec:gpt-3}).
 
 \section*{Acknowledgements}
 The Github Copilot\footnote{\url{https://github.com/features/copilot}}
